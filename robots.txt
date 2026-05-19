@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mordorreimagined.github.io/Lathmar-The-Fallen-Depths/sitemap.xml
