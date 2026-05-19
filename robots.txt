@@ -2,3 +2,8 @@ User-agent: *
 Allow: /
 
 Sitemap: https://mordorreimagined.github.io/Lathmar-The-Fallen-Depths/sitemap.xml
+
+# This repository is published as a GitHub Pages project site under a subpath.
+# Search engines generally only consult robots.txt at the host root:
+# https://mordorreimagined.github.io/robots.txt
+# Configure crawl directives and sitemap discovery there, or on a custom domain.
