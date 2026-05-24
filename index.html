@@ -121,5 +121,46 @@
   <footer class="site-footer">
     <p>© 2026 Michael Kahler. Lathmar: The Fallen Depths. All rights reserved.</p>
   </footer>
+
+  <script>
+    /* scroll the whole header section */ 
+    const hero = document.querySelector(".hero");
+    const page = document.querySelector(".page");
+    let scrollJumpLocked = false;
+    function scrollToSection(target) {
+      scrollJumpLocked = true;
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+      window.setTimeout(() => {
+        scrollJumpLocked = false;
+      }, 750);
+    }
+    function scrollerHeroPage(e) {
+      if (scrollJumpLocked || e.ctrlKey || e.deltaY === 0) {
+        return;
+      }
+      const scrollTop = window.scrollY;
+      const heroBottom = hero.offsetTop + hero.offsetHeight;
+      const pageTop = page.offsetTop;
+      const threshold = 8;
+      if (e.deltaY > 0 && scrollTop < heroBottom - threshold) {
+        e.preventDefault();
+        scrollToSection(page);
+        return;
+      }
+      if (e.deltaY < 0 && scrollTop <= pageTop + threshold && scrollTop >= pageTop - threshold) {
+        e.preventDefault();
+        scrollToSection(hero);
+      }
+    }
+    window.addEventListener("wheel", scrollerHeroPage, { passive: false });
+
+    /* parallax effect on Lathmar logo */
+    const heroContent = document.querySelector(".hero__title-logo");
+    window.addEventListener("scroll", () => {
+      const scrolled = window.scrollY;
+      heroContent.style.transform = `translateY(${scrolled * 0.3}px)`;
+    });
+  </script>
+
 </body>
 </html>
