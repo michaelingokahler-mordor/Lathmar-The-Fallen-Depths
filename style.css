@@ -309,4 +309,9 @@ h1 {
     width: 100%;
     max-width: 22rem;
   }
+
+  /* reposition hero content on smaller screens to avoid clipping */
+  .hero__content {
+    padding: 18% 0;
+  }
 }
