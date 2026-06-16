@@ -49,6 +49,7 @@
 
       <nav class="hero__nav" aria-label="Main navigation">
         <a href="#about">About</a>
+        <a href="#races-guilds">Races &amp; Guilds</a>
         <a href="#media">YouTube</a>
         <a href="https://www.patreon.com/c/MordorReimagined" target="_blank" rel="noopener noreferrer">Patreon</a>
       </nav>
@@ -118,14 +119,156 @@
     </section>
   </main>
 
+  <section class="codex-section" id="races-guilds" aria-labelledby="codex-title">
+    <div class="codex-layout">
+      <div class="codex-intro">
+        <p class="section-kicker">Adventurer's Codex</p>
+        <h2 id="codex-title">10 Races, 21 Guilds, Infinite Possibilities</h2>
+        <p>
+          Shape a party before the first torch is lit. In Lathmar, ancestry is not cosmetic,
+          and guild choice is more than a class label. Every expedition begins with a promise:
+          who will endure, who will open the way, and who will pay the price when the depths answer back?
+        </p>
+      </div>
+
+      <div class="codex-console" aria-label="Races and guilds explorer">
+        <div class="codex-tabs" role="tablist" aria-label="Codex categories">
+          <button class="codex-tab is-active" type="button" data-codex-tab="races" role="tab" aria-selected="true">
+            Races
+          </button>
+          <button class="codex-tab" type="button" data-codex-tab="guilds" role="tab" aria-selected="false">
+            Guilds
+          </button>
+        </div>
+
+        <div class="codex-body">
+          <div class="codex-list" data-codex-list aria-label="Select a race or guild"></div>
+
+          <article class="codex-detail is-visible" data-codex-detail aria-live="polite">
+            <p class="codex-detail__type">Race</p>
+            <h3>Human</h3>
+            <p>
+              Flexible survivors who fit almost any party plan. Humans bring clean choices,
+              fast adaptation, and the freedom to become what the expedition needs most.
+            </p>
+            <div class="codex-tags" aria-label="Human traits">
+              <span>Flexible</span>
+              <span>Adaptable</span>
+              <span>First Party</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <footer class="site-footer">
     <p>© 2026 Michael Kahler. Lathmar: The Fallen Depths. All rights reserved.</p>
   </footer>
 
   <script>
-    /* scroll the whole header section */ 
+    const codexEntries = {
+      races: [
+        { name: "Human", text: "Flexible survivors who fit almost any party plan. Humans bring clean choices, fast adaptation, and the freedom to become what the expedition needs most.", tags: ["Flexible", "Adaptable", "First Party"] },
+        { name: "Elf", text: "Long-lived and magic-attuned, Elves are built for careful support, arcane paths, and characters who survive by insight before steel.", tags: ["Magic", "Wisdom", "Support"] },
+        { name: "Deep-Elf", text: "Marked by the underworld, Deep-Elves lean into stealth, dark magic, and dangerous paths that would break more ordinary adventurers.", tags: ["Dark Paths", "Stealth", "Magic"] },
+        { name: "Kataxi", text: "Agile desert wanderers with presence and speed. Kataxi shine when a build needs finesse, charm, and motion instead of brute armor.", tags: ["Agile", "Charisma", "Finesse"] },
+        { name: "Dwarf", text: "Stubborn survivors built for the punishments that end weaker expeditions. Dwarves are for players who value endurance, resistance, and reliability over elegance.", tags: ["Durable", "Resistant", "Frontline"] },
+        { name: "Gnome", text: "Small, clever, and socially sharp, Gnomes turn support roles, utility, songs, and strange plans into practical expedition tools.", tags: ["Clever", "Utility", "Support"] },
+        { name: "Ithrax", text: "Harsh and unsentimental, Ithrax are made for control, dangerous magic, and characters who treat survival as a discipline.", tags: ["Control", "Acid", "Dark Magic"] },
+        { name: "Oromun", text: "Stone-born giants who feel less like recruits and more like moving walls. Oromun reward patient players who want a physical anchor for the party.", tags: ["Massive", "Enduring", "Anchor"] },
+        { name: "Skarn", text: "Large, direct, and physically imposing, Skarn are natural martial choices for players who want strength with a harsher edge.", tags: ["Martial", "Powerful", "Frontline"] },
+        { name: "Lignari", text: "Nature-bound and quietly difficult to kill, Lignari survive through strange endurance, wisdom, and a refusal to depend on ordinary armor.", tags: ["Nature", "Resistant", "Wisdom"] }
+      ],
+      guilds: [
+        { group: "Foundation", name: "Adventurer", text: "The open road before specialization. Adventurers are the safe beginning for uncertain builds, replacements, and heroes still finding their true method.", tags: ["Flexible", "Beginner", "Roster"] },
+        { group: "Steel", name: "Guardian", text: "Disciplined protectors who hold pressure and keep the fragile alive. Guardians are for parties that want a shield between hope and disaster.", tags: ["Defense", "Protector", "Frontline"] },
+        { group: "Steel", name: "Barbarian", text: "Force applied without apology. Barbarians answer danger with raw pressure, heavy hits, and the confidence that some doors open better broken.", tags: ["Aggression", "Strength", "Damage"] },
+        { group: "Steel", name: "Monk", text: "Discipline in motion. Monks survive through technique, timing, and inner control rather than hiding behind the heaviest gear.", tags: ["Discipline", "Dodge", "Technique"] },
+        { group: "Steel", name: "Ninja", text: "Hidden violence for darker parties. Ninjas turn speed, silence, and sudden pressure into a way of ending threats before they fully begin.", tags: ["Stealth", "Burst", "Evil"] },
+        { group: "Steel", name: "Ranger", text: "Fieldcraft with a blade in hand. Rangers read paths, track danger, and bring practical combat sense to the parts of the dungeon that still feel wild.", tags: ["Tracking", "Perception", "Hybrid"] },
+        { group: "Steel", name: "Saboteur", text: "Saboteurs do not win fair fights; they make fights unfair first. They break enemy plans, exploit openings, and turn systems against their owners.", tags: ["Disruption", "Traps", "Control"] },
+        { group: "Cunning", name: "Seeker", text: "Seekers turn ignorance into an advantage. They read the dungeon, reveal what others miss, and make dangerous expeditions feel less blind.", tags: ["Lore", "Perception", "Utility"] },
+        { group: "Cunning", name: "Bard", text: "Bards make memory, morale, and song into survival tools. They are for players who like support that feels social, strange, and alive.", tags: ["Songs", "Morale", "Support"] },
+        { group: "Cunning", name: "Thief", text: "Locks, traps, mechanisms, treasure - the Thief handles threats that never roll initiative but can still ruin an expedition.", tags: ["Locks", "Traps", "Treasure"] },
+        { group: "Cunning", name: "Swashbuckler", text: "Charm with a blade behind it. Swashbucklers bring nerve, luck, and enough steel to survive where a cleaner rogue might fold.", tags: ["Charm", "Luck", "Duelist"] },
+        { group: "Cunning", name: "Apothecary", text: "Practical medicine for long descents. Apothecaries keep bodies moving when magic is scarce and the party cannot afford another collapse.", tags: ["Medicine", "Recovery", "Supplies"] },
+        { group: "Cunning", name: "Alchemist", text: "Alchemists turn preparation into attrition. Mixtures, reactions, corrosion, and fire make them dangerous long before a blade is drawn.", tags: ["Mixtures", "Attrition", "Fire"] },
+        { group: "Power", name: "Mystic", text: "Mystics are the spiritual stabilizers of a party. They heal, restore, and keep expeditions functional when the dungeon starts taking pieces away.", tags: ["Healing", "Cures", "Support"] },
+        { group: "Power", name: "Wizard", text: "Wizards are dangerous knowledge given shape. They reward patient players who want arcane control, dark answers, and power that grows with understanding.", tags: ["Arcane", "Control", "Lore"] },
+        { group: "Power", name: "Elemental Mage", text: "Elemental Mages bring direct magical force: burning, freezing, shocking, and breaking enemies with the language of raw damage.", tags: ["Elements", "Damage", "Magic"] },
+        { group: "Power", name: "Sorcerer", text: "Sorcerers are ward-makers and survival architects. They turn magic toward protection, resistance, and keeping the party alive against the wrong kind of threat.", tags: ["Wards", "Protection", "Resistance"] },
+        { group: "Power", name: "Druid", text: "Druids bind healing, nature, and beasts into a gentler kind of power. Their parties feel prepared for a dungeon that still remembers the wild.", tags: ["Nature", "Healing", "Beasts"] },
+        { group: "Power", name: "Beastmaster", text: "Beastmasters command with teeth. They are for darker parties built around companions, control, and the uneasy bargain of borrowed strength.", tags: ["Companions", "Control", "Command"] },
+        { group: "Power", name: "Paladin", text: "Paladins are conviction in armor: sword, light, protection, and enough healing to keep the line from breaking when darkness pushes back.", tags: ["Light", "Hybrid", "Protection"] },
+        { group: "Power", name: "Gravewalker", text: "Gravewalkers are the dark mirror of holy power. They use death, attrition, and forbidden command to make the depths fight on their terms.", tags: ["Death Magic", "Undead", "Attrition"] }
+      ]
+    };
+
+    const codexList = document.querySelector("[data-codex-list]");
+    const codexDetail = document.querySelector("[data-codex-detail]");
+    const codexTabs = document.querySelectorAll("[data-codex-tab]");
+    let activeCodexTab = "races";
+
+    function renderCodexDetail(entry) {
+      codexDetail.classList.remove("is-visible");
+      window.setTimeout(() => {
+        codexDetail.innerHTML = `
+          <p class="codex-detail__type">${activeCodexTab === "races" ? "Race" : entry.group + " Guild"}</p>
+          <h3>${entry.name}</h3>
+          <p>${entry.text}</p>
+          <div class="codex-tags" aria-label="${entry.name} traits">
+            ${entry.tags.map((tag) => `<span>${tag}</span>`).join("")}
+          </div>
+        `;
+        codexDetail.classList.add("is-visible");
+      }, 90);
+    }
+
+    function renderCodexList() {
+      const entries = codexEntries[activeCodexTab];
+      codexList.innerHTML = entries.map((entry, index) => {
+        const group = entry.group ? `<span>${entry.group}</span>` : "";
+        return `
+          <button class="codex-choice${index === 0 ? " is-active" : ""}" type="button" data-codex-index="${index}">
+            ${group}
+            <strong>${entry.name}</strong>
+          </button>
+        `;
+      }).join("");
+      renderCodexDetail(entries[0]);
+    }
+
+    codexTabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        activeCodexTab = tab.dataset.codexTab;
+        codexTabs.forEach((item) => {
+          const isActive = item === tab;
+          item.classList.toggle("is-active", isActive);
+          item.setAttribute("aria-selected", String(isActive));
+        });
+        renderCodexList();
+      });
+    });
+
+    codexList.addEventListener("click", (event) => {
+      const choice = event.target.closest("[data-codex-index]");
+      if (!choice) {
+        return;
+      }
+      codexList.querySelectorAll(".codex-choice").forEach((item) => {
+        item.classList.toggle("is-active", item === choice);
+      });
+      renderCodexDetail(codexEntries[activeCodexTab][Number(choice.dataset.codexIndex)]);
+    });
+
+    renderCodexList();
+
+    /* scroll the full screen sections */
     const hero = document.querySelector(".hero");
     const page = document.querySelector(".page");
+    const codexSection = document.querySelector(".codex-section");
+    const snapSections = [hero, page, codexSection];
     let scrollJumpLocked = false;
     function scrollToSection(target) {
       scrollJumpLocked = true;
@@ -139,17 +282,24 @@
         return;
       }
       const scrollTop = window.scrollY;
-      const heroBottom = hero.offsetTop + hero.offsetHeight;
-      const pageTop = page.offsetTop;
       const threshold = 8;
-      if (e.deltaY > 0 && scrollTop < heroBottom - threshold) {
-        e.preventDefault();
-        scrollToSection(page);
+      const currentIndex = snapSections.findIndex((section, index) => {
+        const nextSection = snapSections[index + 1];
+        const sectionTop = section.offsetTop;
+        const sectionBottom = nextSection ? nextSection.offsetTop : section.offsetTop + section.offsetHeight;
+        return scrollTop >= sectionTop - threshold && scrollTop < sectionBottom - threshold;
+      });
+      if (currentIndex === -1) {
         return;
       }
-      if (e.deltaY < 0 && scrollTop <= pageTop + threshold && scrollTop >= pageTop - threshold) {
+      if (e.deltaY > 0 && currentIndex < snapSections.length - 1) {
         e.preventDefault();
-        scrollToSection(hero);
+        scrollToSection(snapSections[currentIndex + 1]);
+        return;
+      }
+      if (e.deltaY < 0 && scrollTop <= snapSections[currentIndex].offsetTop + threshold && currentIndex > 0) {
+        e.preventDefault();
+        scrollToSection(snapSections[currentIndex - 1]);
       }
     }
     window.addEventListener("wheel", scrollerHeroPage, { passive: false });
