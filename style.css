@@ -666,14 +666,21 @@ h1 {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.5rem;
+  align-items: stretch;
 }
 
 .legal-grid article,
 .supporters-panel,
 .legal-panel article:not(.supporters-panel) {
+  display: flex;
+  flex-direction: column;
   padding: 1.25rem;
   border: 1px solid rgba(201, 163, 90, 0.26);
   background: rgba(8, 7, 6, 0.36);
+}
+
+.legal-grid article + article {
+  margin-top: 0;
 }
 
 .legal-panel p,
