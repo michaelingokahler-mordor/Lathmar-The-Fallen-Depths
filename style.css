@@ -47,6 +47,92 @@ a:focus {
   text-decoration: underline;
 }
 
+.site-menu {
+  position: fixed;
+  top: 1.25rem;
+  right: 1.25rem;
+  z-index: 20;
+  display: grid;
+  justify-items: end;
+  gap: 0.7rem;
+}
+
+.menu-toggle {
+  width: 4rem;
+  height: 4rem;
+  display: grid;
+  place-items: center;
+  gap: 0.34rem;
+  padding: 0.78rem;
+  border: 1px solid rgba(239, 206, 123, 0.9);
+  background:
+    linear-gradient(180deg, rgba(66, 42, 17, 0.92), rgba(8, 7, 6, 0.9));
+  box-shadow:
+    0 0.9rem 1.8rem rgba(0, 0, 0, 0.55),
+    0 0 1rem rgba(223, 170, 78, 0.18);
+  cursor: pointer;
+  backdrop-filter: blur(3px);
+}
+
+.menu-toggle span:not(.visually-hidden) {
+  width: 2rem;
+  height: 0.18rem;
+  display: block;
+  background: #fff1c6;
+  box-shadow: 0 0 0.35rem rgba(239, 206, 123, 0.45);
+  transition: transform 160ms ease, opacity 160ms ease;
+}
+
+.site-menu.is-open .menu-toggle span:nth-child(2) {
+  transform: translateY(0.52rem) rotate(45deg);
+}
+
+.site-menu.is-open .menu-toggle span:nth-child(3) {
+  opacity: 0;
+}
+
+.site-menu.is-open .menu-toggle span:nth-child(4) {
+  transform: translateY(-0.52rem) rotate(-45deg);
+}
+
+.menu-panel {
+  min-width: 15rem;
+  display: grid;
+  gap: 0.35rem;
+  padding: 0.75rem;
+  border: 1px solid rgba(201, 163, 90, 0.5);
+  background: rgba(9, 8, 7, 0.92);
+  box-shadow: 0 1.2rem 2.8rem rgba(0, 0, 0, 0.62);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-0.5rem);
+  transition: opacity 160ms ease, transform 160ms ease;
+  backdrop-filter: blur(4px);
+}
+
+.site-menu.is-open .menu-panel {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.menu-panel a {
+  padding: 0.72rem 0.85rem;
+  border: 1px solid rgba(201, 163, 90, 0.25);
+  color: #f6e7c4;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.menu-panel a:hover,
+.menu-panel a:focus-visible {
+  border-color: rgba(239, 206, 123, 0.8);
+  background: rgba(63, 44, 22, 0.72);
+  text-decoration: none;
+}
+
 .hero {
   position: relative;
   min-height: 100vh;
@@ -516,6 +602,79 @@ h1 {
   background-color: var(--bg); /* covers the brick patterns */
 }
 
+.legal-page {
+  min-height: 100vh;
+}
+
+.legal-shell {
+  width: min(92vw, var(--max-width));
+  margin: 0 auto;
+  padding: 6rem 0 4rem;
+}
+
+.legal-panel {
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  border: 1px solid rgba(201, 163, 90, 0.36);
+  background: rgba(20, 17, 14, 0.58);
+  box-shadow: 0 1.4rem 3rem rgba(0, 0, 0, 0.48);
+  backdrop-filter: blur(2px);
+}
+
+.legal-panel h1,
+.legal-panel h2,
+.legal-panel h3 {
+  color: var(--gold-bright);
+  line-height: 1.15;
+}
+
+.legal-panel h1 {
+  margin: 0 0 1.5rem;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+}
+
+.legal-panel h2 {
+  margin: 0 0 0.9rem;
+}
+
+.legal-panel h3 {
+  margin: 1.5rem 0 0.55rem;
+  color: #f3d88f;
+}
+
+.legal-panel article + article,
+.supporters-panel {
+  margin-top: 1.5rem;
+}
+
+.legal-grid,
+.supporters-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.legal-grid article,
+.supporters-panel,
+.legal-panel article:not(.supporters-panel) {
+  padding: 1.25rem;
+  border: 1px solid rgba(201, 163, 90, 0.26);
+  background: rgba(8, 7, 6, 0.36);
+}
+
+.legal-panel p,
+.legal-panel li {
+  color: #e8dcc5;
+}
+
+.legal-panel ul {
+  margin: 0.7rem 0 0;
+  padding-left: 1.2rem;
+}
+
+.legal-panel li + li {
+  margin-top: 0.45rem;
+}
+
 @media (min-width: 821px) {
   html {
     scroll-snap-type: y proximity;
@@ -529,6 +688,24 @@ h1 {
 }
 
 @media (max-width: 820px) {
+  .site-menu {
+    top: 0.75rem;
+    right: 0.75rem;
+  }
+
+  .menu-toggle {
+    width: 3.35rem;
+    height: 3.35rem;
+  }
+
+  .menu-toggle span:not(.visually-hidden) {
+    width: 1.65rem;
+  }
+
+  .menu-panel {
+    min-width: min(17rem, calc(100vw - 1.5rem));
+  }
+
   .hero {
     min-height: auto;
     height: auto;
@@ -593,5 +770,14 @@ h1 {
 
   .codex-detail h3 {
     font-size: 1.85rem;
+  }
+
+  .legal-shell {
+    padding-top: 5rem;
+  }
+
+  .legal-grid,
+  .supporters-grid {
+    grid-template-columns: 1fr;
   }
 }

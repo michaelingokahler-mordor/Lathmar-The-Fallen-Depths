@@ -37,6 +37,24 @@
 </head>
 
 <body>
+  <div class="site-menu">
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu-panel">
+      <span class="visually-hidden">Open menu</span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </button>
+
+    <nav class="menu-panel" id="site-menu-panel" aria-label="Site navigation">
+      <a href="#top">Home</a>
+      <a href="#about">About</a>
+      <a href="#races-guilds">Races &amp; Guilds</a>
+      <a href="#media">YouTube</a>
+      <a href="https://www.patreon.com/c/MordorReimagined" target="_blank" rel="noopener noreferrer">Patreon</a>
+      <a href="legal.html">Imprint &amp; Credits</a>
+    </nav>
+  </div>
+
   <header class="hero" id="top">
     <div class="hero__shade"></div>
 
@@ -46,13 +64,6 @@
       <h1 class="visually-hidden">Lathmar: The Fallen Depths</h1>
       <img class="hero__title-logo" src="assets/Lathmar_Title_hell.webp" alt="" aria-hidden="true" />
       <p class="tagline">A dark dungeon RPG with old-school roots, party management, guilds, monsters, and tactical auto-battles.</p>
-
-      <nav class="hero__nav" aria-label="Main navigation">
-        <a href="#about">About</a>
-        <a href="#races-guilds">Races &amp; Guilds</a>
-        <a href="#media">YouTube</a>
-        <a href="https://www.patreon.com/c/MordorReimagined" target="_blank" rel="noopener noreferrer">Patreon</a>
-      </nav>
     </div>
   </header>
 
@@ -163,7 +174,7 @@
   </section>
 
   <footer class="site-footer">
-    <p>© 2026 Michael Kahler. Lathmar: The Fallen Depths. All rights reserved.</p>
+    <p>© 2026 Michael Kahler. Lathmar: The Fallen Depths. All rights reserved. <a href="legal.html">Imprint &amp; Credits</a></p>
   </footer>
 
   <script>
@@ -263,6 +274,22 @@
     });
 
     renderCodexList();
+
+    const siteMenu = document.querySelector(".site-menu");
+    const menuToggle = document.querySelector(".menu-toggle");
+    const menuPanel = document.querySelector(".menu-panel");
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = siteMenu.classList.toggle("is-open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    menuPanel.addEventListener("click", (event) => {
+      if (event.target.closest("a")) {
+        siteMenu.classList.remove("is-open");
+        menuToggle.setAttribute("aria-expanded", "false");
+      }
+    });
 
     /* scroll the full screen sections */
     const hero = document.querySelector(".hero");
