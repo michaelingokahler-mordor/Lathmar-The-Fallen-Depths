@@ -422,6 +422,15 @@ h1 {
   text-shadow: 0 0.35rem 1.4rem rgba(0, 0, 0, 0.72);
 }
 
+.codex-intro h2 span {
+  display: block;
+}
+
+.codex-intro h2 span:last-child {
+  font-size: 0.78em;
+  white-space: nowrap;
+}
+
 .codex-intro p:last-child {
   margin: 1.2rem 0 0;
   color: #d8c9ac;
