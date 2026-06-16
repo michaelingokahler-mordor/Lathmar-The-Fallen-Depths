@@ -299,6 +299,7 @@ h1 {
   position: relative;
   z-index: 1;
   width: min(92vw, var(--max-width));
+  height: clamp(620px, 68svh, 720px);
   margin: 0 auto;
   display: grid;
   grid-template-columns: minmax(260px, 0.72fr) minmax(0, 1.28fr);
@@ -341,6 +342,9 @@ h1 {
 
 .codex-console {
   min-width: 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
   padding: 1rem;
   border: 1px solid rgba(201, 163, 90, 0.36);
   background:
@@ -385,13 +389,15 @@ h1 {
 }
 
 .codex-body {
+  flex: 1;
   display: grid;
   grid-template-columns: minmax(190px, 0.82fr) minmax(0, 1.18fr);
   gap: 1rem;
+  min-height: 0;
 }
 
 .codex-list {
-  max-height: 28rem;
+  min-height: 0;
   overflow: auto;
   display: grid;
   grid-template-columns: 1fr;
@@ -559,6 +565,7 @@ h1 {
 
   .codex-layout {
     grid-template-columns: 1fr;
+    height: auto;
   }
 
   .codex-intro,
