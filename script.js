@@ -197,11 +197,11 @@ if (typeof codexEntries !== "undefined") {
             return fogLayer;
           };
 
-          const resizeFogLayer = (fogLayer) => {
-            fogLayer.width = app.screen.width;
-            fogLayer.height = app.screen.height;
+          const resizeFogLayer = (fogLayer, bounds) => {
+            fogLayer.width = bounds.width;
+            fogLayer.height = bounds.height;
             const imageAspect = fogLayer.filters[0].uniforms.depthMap.width / fogLayer.filters[0].uniforms.depthMap.height;
-            const stageAspect = app.screen.width / app.screen.height;
+            const stageAspect = bounds.width / bounds.height;
             let uvScale = [1, 1];
             let uvOffset = [0, 0];
             if (stageAspect > imageAspect) {
@@ -214,7 +214,15 @@ if (typeof codexEntries !== "undefined") {
             fogLayer.filters[0].uniforms.depthUvScale = uvScale;
             fogLayer.filters[0].uniforms.depthUvOffset = uvOffset;
           };
-          window.addEventListener("resize", () => app.stage.children.forEach(resizeFogLayer));
+          const resizeFogLayers = () => {
+            const bounds = stage.getBoundingClientRect();
+            if (!bounds.width || !bounds.height) {
+              return;
+            }
+            app.renderer.resize(bounds.width, bounds.height);
+            app.stage.children.forEach((fogLayer) => resizeFogLayer(fogLayer, bounds));
+          };
+          new ResizeObserver(resizeFogLayers).observe(stage);
 
           let visibleFogLayer;
           let fogTransitionFrame;
@@ -235,11 +243,11 @@ if (typeof codexEntries !== "undefined") {
             }
             const previousFogLayer = visibleFogLayer;
             const nextFogLayer = createFogLayer(name);
-            resizeFogLayer(nextFogLayer);
             nextFogLayer.alpha = previousFogLayer ? 0 : 1;
             app.stage.addChild(nextFogLayer);
             visibleFogLayer = nextFogLayer;
             card.appendChild(stage);
+            resizeFogLayers();
 
             if (!previousFogLayer) {
               return;
