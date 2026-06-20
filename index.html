@@ -20,6 +20,10 @@
   <meta name="twitter:description" content="A dark fantasy dungeon crawler inspired by the classics." />
   <meta name="twitter:image" content="https://mordorreimagined.github.io/Lathmar-The-Fallen-Depths/assets/main-screen.jpg" />
 
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Diphylleia&display=swap" rel="stylesheet" />
+
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -220,6 +224,78 @@
       ]
     };
 
+    const codexArtwork = {
+      "Human": "assets/Races_Guilds/Race_Human_Female.webp",
+      "Elf": "assets/Races_Guilds/Race_Elf_Male.webp",
+      "Deep-Elf": "assets/Races_Guilds/Race_Deep-elf_Female.webp",
+      "Kataxi": "assets/Races_Guilds/Race_Kataxi_Female.webp",
+      "Dwarf": "assets/Races_Guilds/Race_Dwarf_Male.webp",
+      "Gnome": "assets/Races_Guilds/Race_Gnome_Female.webp",
+      "Ithrax": "assets/Races_Guilds/Race_Ithrax_Male.webp",
+      "Oromun": "assets/Races_Guilds/Race_Oromun_male.webp",
+      "Skarn": "assets/Races_Guilds/Race_Skarn_Male.webp",
+      "Lignari": "assets/Races_Guilds/Race_Lignari_Neutral.webp",
+      "Adventurer": "assets/Races_Guilds/Adventurer_Female.webp",
+      "Guardian": "assets/Races_Guilds/Guardian_Male.webp",
+      "Barbarian": "assets/Races_Guilds/Barbarian_Female.webp",
+      "Monk": "assets/Races_Guilds/Monk_Female.webp",
+      "Ninja": "assets/Races_Guilds/Ninja_Male.webp",
+      "Ranger": "assets/Races_Guilds/Ranger_Female.webp",
+      "Saboteur": "assets/Races_Guilds/Saboteur_Male.webp",
+      "Seeker": "assets/Races_Guilds/Seeker_Male.webp",
+      "Bard": "assets/Races_Guilds/Bard_Male.webp",
+      "Thief": "assets/Races_Guilds/Thief_Female.webp",
+      "Swashbuckler": "assets/Races_Guilds/Swashbuckler_male.webp",
+      "Apothecary": "assets/Races_Guilds/Apothecary_Male.webp",
+      "Alchemist": "assets/Races_Guilds/Alchemist_Female.webp",
+      "Mystic": "assets/Races_Guilds/Mystik_Male.webp",
+      "Wizard": "assets/Races_Guilds/Wizard_Female.webp",
+      "Elemental Mage": "assets/Races_Guilds/Elemental_Mage_Male.webp",
+      "Sorcerer": "assets/Races_Guilds/Sorcerer_Male.webp",
+      "Druid": "assets/Races_Guilds/Druid_Male.webp",
+      "Beastmaster": "assets/Races_Guilds/Beastmaster_Male.webp",
+      "Paladin": "assets/Races_Guilds/Paladin_Male.webp",
+      "Gravewalker": "assets/Races_Guilds/Gravewalker_Female.webp"
+    };
+
+    // Add an entry here when a portrait needs a different crop in the left-hand list.
+    // `position` uses CSS object-position values; `scale` zooms the image.
+    // position = X & Y coordinates for the focal point of the portrait (e.g., "50% 35%" for centered slightly above the middle)
+    // scale = how much to zoom in on the image (e.g., 1.2 for 20% zoom)
+    const codexArtworkFraming = {
+      "Human": { position: "60% 20%", scale: 1.15 },
+      "Elf": { position: "50% 15%", scale: 1 },
+      "Deep-Elf": { position: "45% 19%", scale: 1.2 },
+      "Kataxi": { position: "70% 23%", scale: 1.1 },
+      "Dwarf": { position: "50% 20%", scale: 1.05 },
+      "Gnome": { position: "50% 25%", scale: 1.5 },
+      "Ithrax": { position: "80% 10%", scale: 1.15 },
+      "Oromun": { position: "48% 10%", scale: 2 },
+      "Skarn": { position: "45% 18%", scale: 1.75 },
+      "Lignari": { position: "42% 27%", scale: 1.6 },
+      "Adventurer": { position: "42% 20%", scale: 1.2 },
+      "Guardian": { position: "34% 10%", scale: 1.6 },
+      "Barbarian": { position: "50% 22%", scale: 1.2 },
+      "Monk": { position: "60% 17%", scale: 1.35 },
+      "Ninja": { position: "40% 20%", scale: 1.2 },
+      "Ranger": { position: "45% 17%", scale: 1.5 },
+      "Saboteur": { position: "58% 20%", scale: 1.8 },
+      "Seeker": { position: "30% 22%", scale: 1.2 },
+      "Bard": { position: "40% 38%", scale: 1.1 },
+      "Thief": { position: "40% 20%", scale: 1.15 },
+      "Swashbuckler": { position: "40% 15%", scale: 1.3 },
+      "Apothecary": { position: "45% 27%", scale: 1.15 },
+      "Alchemist": { position: "30% 18%", scale: 1.4 },
+      "Mystic": { position: "40% 18%", scale: 1.5 },
+      "Wizard": { position: "50% 25%", scale: 1.25 },
+      "Elemental Mage": { position: "40% 25%", scale: 1.4 },
+      "Sorcerer": { position: "40% 25%", scale: 1 },
+      "Druid": { position: "40% 30%", scale: 1 },
+      "Beastmaster": { position: "45% 17%", scale: 1.6 },
+      "Paladin": { position: "37% 30%", scale: 1.2 },
+      "Gravewalker": { position: "48% 25%", scale: 1.75 }
+    };
+
     const codexList = document.querySelector("[data-codex-list]");
     const codexDetail = document.querySelector("[data-codex-detail]");
     const codexTabs = document.querySelectorAll("[data-codex-tab]");
@@ -228,6 +304,7 @@
     function renderCodexDetail(entry) {
       codexDetail.classList.remove("is-visible");
       window.setTimeout(() => {
+        codexDetail.style.setProperty("--codex-art", `url("${codexArtwork[entry.name]}")`);
         codexDetail.innerHTML = `
           <p class="codex-detail__type">${activeCodexTab === "races" ? "Race" : entry.group + " Guild"}</p>
           <h3>${entry.name}</h3>
@@ -244,8 +321,11 @@
       const entries = codexEntries[activeCodexTab];
       codexList.innerHTML = entries.map((entry, index) => {
         const group = entry.group ? `<span>${entry.group}</span>` : "";
+        const framing = codexArtworkFraming[entry.name] || {};
+        const cardStyle = `--codex-card-position: ${framing.position || "50% 35%"}; --codex-card-scale: ${framing.scale || 1};`;
         return `
-          <button class="codex-choice${index === 0 ? " is-active" : ""}" type="button" data-codex-index="${index}">
+          <button class="codex-choice${index === 0 ? " is-active" : ""}" type="button" data-codex-index="${index}" aria-pressed="${index === 0}" style="${cardStyle}">
+            <img src="${codexArtwork[entry.name]}" alt="" />
             ${group}
             <strong>${entry.name}</strong>
           </button>
@@ -260,7 +340,7 @@
         codexTabs.forEach((item) => {
           const isActive = item === tab;
           item.classList.toggle("is-active", isActive);
-          item.setAttribute("aria-selected", String(isActive));
+          item.setAttribute("aria-sele7cted", String(isActive));
         });
         renderCodexList();
       });
@@ -273,6 +353,7 @@
       }
       codexList.querySelectorAll(".codex-choice").forEach((item) => {
         item.classList.toggle("is-active", item === choice);
+        item.setAttribute("aria-pressed", String(item === choice));
       });
       renderCodexDetail(codexEntries[activeCodexTab][Number(choice.dataset.codexIndex)]);
     });
