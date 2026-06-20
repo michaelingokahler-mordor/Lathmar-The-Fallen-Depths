@@ -191,450 +191,271 @@
   </footer>
 
   <script>
+    // Codex data
+    // Artwork position defines how the image is framed within the codex detail card.
     const codexEntries = {
       races: [
-        { name: "Human", text: "Flexible survivors who fit almost any party plan. Humans bring clean choices, fast adaptation, and the freedom to become what the expedition needs most.", tags: ["Flexible", "Adaptable", "First Party"] },
-        { name: "Elf", text: "Long-lived and magic-attuned, Elves are built for careful support, arcane paths, and characters who survive by insight before steel.", tags: ["Magic", "Wisdom", "Support"] },
-        { name: "Deep-Elf", text: "Marked by the underworld, Deep-Elves lean into stealth, dark magic, and dangerous paths that would break more ordinary adventurers.", tags: ["Dark Paths", "Stealth", "Magic"] },
-        { name: "Kataxi", text: "Agile desert wanderers with presence and speed. Kataxi shine when a build needs finesse, charm, and motion instead of brute armor.", tags: ["Agile", "Charisma", "Finesse"] },
-        { name: "Dwarf", text: "Stubborn survivors built for the punishments that end weaker expeditions. Dwarves are for players who value endurance, resistance, and reliability over elegance.", tags: ["Durable", "Resistant", "Frontline"] },
-        { name: "Gnome", text: "Small, clever, and socially sharp, Gnomes turn support roles, utility, songs, and strange plans into practical expedition tools.", tags: ["Clever", "Utility", "Support"] },
-        { name: "Ithrax", text: "Harsh and unsentimental, Ithrax are made for control, dangerous magic, and characters who treat survival as a discipline.", tags: ["Control", "Acid", "Dark Magic"] },
-        { name: "Oromun", text: "Stone-born giants who feel less like recruits and more like moving walls. Oromun reward patient players who want a physical anchor for the party.", tags: ["Massive", "Enduring", "Anchor"] },
-        { name: "Skarn", text: "Large, direct, and physically imposing, Skarn are natural martial choices for players who want strength with a harsher edge.", tags: ["Martial", "Powerful", "Frontline"] },
-        { name: "Lignari", text: "Nature-bound and quietly difficult to kill, Lignari survive through strange endurance, wisdom, and a refusal to depend on ordinary armor.", tags: ["Nature", "Resistant", "Wisdom"] }
+        { name: "Human",
+            text: "Flexible survivors who fit almost any party plan. Humans bring clean choices, fast adaptation, and the freedom to become what the expedition needs most.",
+              tags: ["Flexible", "Adaptable", "First Party"],
+              artwork: {
+                filename: "Race_Human_Female.webp",
+                position: "60% 20%",
+                scale: 1.15
+              } },
+        { name: "Elf",
+            text: "Long-lived and magic-attuned, Elves are built for careful support, arcane paths, and characters who survive by insight before steel.",
+              tags: ["Magic", "Wisdom", "Support"],
+              artwork: {
+                filename: "Race_Elf_Male.webp",
+                position: "50% 15%",
+                scale: 1
+              } },
+        { name: "Deep-Elf",
+            text: "Marked by the underworld, Deep-Elves lean into stealth, dark magic, and dangerous paths that would break more ordinary adventurers.",
+              tags: ["Dark Paths", "Stealth", "Magic"],
+              artwork: {
+                filename: "Race_Deep-elf_Female.webp",
+                position: "45% 19%",
+                scale: 1.2
+              } },
+        { name: "Kataxi",
+            text: "Agile desert wanderers with presence and speed. Kataxi shine when a build needs finesse, charm, and motion instead of brute armor.",
+              tags: ["Agile", "Charisma", "Finesse"],
+              artwork: {
+                filename: "Race_Kataxi_Female.webp",
+                position: "70% 23%",
+                scale: 1.1
+              } },
+        { name: "Dwarf",
+            text: "Stubborn survivors built for the punishments that end weaker expeditions. Dwarves are for players who value endurance, resistance, and reliability over elegance.",
+              tags: ["Durable", "Resistant", "Frontline"],
+              artwork: {
+                filename: "Race_Dwarf_Male.webp",
+                position: "50% 20%",
+                scale: 1.05
+              } },
+        { name: "Gnome",
+            text: "Small, clever, and socially sharp, Gnomes turn support roles, utility, songs, and strange plans into practical expedition tools.",
+              tags: ["Clever", "Utility", "Support"],
+              artwork: {
+                filename: "Race_Gnome_Female.webp",
+                position: "50% 25%",
+                scale: 1.5
+              } },
+        { name: "Ithrax",
+            text: "Harsh and unsentimental, Ithrax are made for control, dangerous magic, and characters who treat survival as a discipline.",
+              tags: ["Control", "Acid", "Dark Magic"],
+              artwork: {
+                filename: "Race_Ithrax_Male.webp",
+                position: "80% 10%",
+                scale: 1.15
+              } },
+        { name: "Oromun",
+            text: "Stone-born giants who feel less like recruits and more like moving walls. Oromun reward patient players who want a physical anchor for the party.",
+              tags: ["Massive", "Enduring", "Anchor"],
+              artwork: {
+                filename: "Race_Oromun_male.webp",
+                position: "48% 10%",
+                scale: 2
+              } },
+        { name: "Skarn",
+            text: "Large, direct, and physically imposing, Skarn are natural martial choices for players who want strength with a harsher edge.",
+              tags: ["Martial", "Powerful", "Frontline"],
+              artwork: {
+                filename: "Race_Skarn_Male.webp",
+                position: "45% 18%",
+                scale: 1.75
+              } },
+        { name: "Lignari",
+            text: "Nature-bound and quietly difficult to kill, Lignari survive through strange endurance, wisdom, and a refusal to depend on ordinary armor.",
+              tags: ["Nature", "Resistant", "Wisdom"],
+              artwork: {
+                filename: "Race_Lignari_Neutral.webp",
+                position: "42% 27%",
+                scale: 1.6
+              } }
       ],
       guilds: [
-        { group: "Foundation", name: "Adventurer", text: "The open road before specialization. Adventurers are the safe beginning for uncertain builds, replacements, and heroes still finding their true method.", tags: ["Flexible", "Beginner", "Roster"] },
-        { group: "Steel", name: "Guardian", text: "Disciplined protectors who hold pressure and keep the fragile alive. Guardians are for parties that want a shield between hope and disaster.", tags: ["Defense", "Protector", "Frontline"] },
-        { group: "Steel", name: "Barbarian", text: "Force applied without apology. Barbarians answer danger with raw pressure, heavy hits, and the confidence that some doors open better broken.", tags: ["Aggression", "Strength", "Damage"] },
-        { group: "Steel", name: "Monk", text: "Discipline in motion. Monks survive through technique, timing, and inner control rather than hiding behind the heaviest gear.", tags: ["Discipline", "Dodge", "Technique"] },
-        { group: "Steel", name: "Ninja", text: "Hidden violence for darker parties. Ninjas turn speed, silence, and sudden pressure into a way of ending threats before they fully begin.", tags: ["Stealth", "Burst", "Evil"] },
-        { group: "Steel", name: "Ranger", text: "Fieldcraft with a blade in hand. Rangers read paths, track danger, and bring practical combat sense to the parts of the dungeon that still feel wild.", tags: ["Tracking", "Perception", "Hybrid"] },
-        { group: "Steel", name: "Saboteur", text: "Saboteurs do not win fair fights; they make fights unfair first. They break enemy plans, exploit openings, and turn systems against their owners.", tags: ["Disruption", "Traps", "Control"] },
-        { group: "Cunning", name: "Seeker", text: "Seekers turn ignorance into an advantage. They read the dungeon, reveal what others miss, and make dangerous expeditions feel less blind.", tags: ["Lore", "Perception", "Utility"] },
-        { group: "Cunning", name: "Bard", text: "Bards make memory, morale, and song into survival tools. They are for players who like support that feels social, strange, and alive.", tags: ["Songs", "Morale", "Support"] },
-        { group: "Cunning", name: "Thief", text: "Locks, traps, mechanisms, treasure - the Thief handles threats that never roll initiative but can still ruin an expedition.", tags: ["Locks", "Traps", "Treasure"] },
-        { group: "Cunning", name: "Swashbuckler", text: "Charm with a blade behind it. Swashbucklers bring nerve, luck, and enough steel to survive where a cleaner rogue might fold.", tags: ["Charm", "Luck", "Duelist"] },
-        { group: "Cunning", name: "Apothecary", text: "Practical medicine for long descents. Apothecaries keep bodies moving when magic is scarce and the party cannot afford another collapse.", tags: ["Medicine", "Recovery", "Supplies"] },
-        { group: "Cunning", name: "Alchemist", text: "Alchemists turn preparation into attrition. Mixtures, reactions, corrosion, and fire make them dangerous long before a blade is drawn.", tags: ["Mixtures", "Attrition", "Fire"] },
-        { group: "Power", name: "Mystic", text: "Mystics are the spiritual stabilizers of a party. They heal, restore, and keep expeditions functional when the dungeon starts taking pieces away.", tags: ["Healing", "Cures", "Support"] },
-        { group: "Power", name: "Wizard", text: "Wizards are dangerous knowledge given shape. They reward patient players who want arcane control, dark answers, and power that grows with understanding.", tags: ["Arcane", "Control", "Lore"] },
-        { group: "Power", name: "Elemental Mage", text: "Elemental Mages bring direct magical force: burning, freezing, shocking, and breaking enemies with the language of raw damage.", tags: ["Elements", "Damage", "Magic"] },
-        { group: "Power", name: "Sorcerer", text: "Sorcerers are ward-makers and survival architects. They turn magic toward protection, resistance, and keeping the party alive against the wrong kind of threat.", tags: ["Wards", "Protection", "Resistance"] },
-        { group: "Power", name: "Druid", text: "Druids bind healing, nature, and beasts into a gentler kind of power. Their parties feel prepared for a dungeon that still remembers the wild.", tags: ["Nature", "Healing", "Beasts"] },
-        { group: "Power", name: "Beastmaster", text: "Beastmasters command with teeth. They are for darker parties built around companions, control, and the uneasy bargain of borrowed strength.", tags: ["Companions", "Control", "Command"] },
-        { group: "Power", name: "Paladin", text: "Paladins are conviction in armor: sword, light, protection, and enough healing to keep the line from breaking when darkness pushes back.", tags: ["Light", "Hybrid", "Protection"] },
-        { group: "Power", name: "Gravewalker", text: "Gravewalkers are the dark mirror of holy power. They use death, attrition, and forbidden command to make the depths fight on their terms.", tags: ["Death Magic", "Undead", "Attrition"] }
+        { name: "Adventurer", group: "Foundation",
+            text: "The open road before specialization. Adventurers are the safe beginning for uncertain builds, replacements, and heroes still finding their true method.",
+              tags: ["Flexible", "Beginner", "Roster"],
+              artwork: {
+                filename: "Adventurer_Female.webp",
+                position: "42% 20%",
+                scale: 1.2
+              } },
+        { name: "Guardian", group: "Steel",
+            text: "Disciplined protectors who hold pressure and keep the fragile alive. Guardians are for parties that want a shield between hope and disaster.",
+              tags: ["Defense", "Protector", "Frontline"],
+              artwork: {
+                filename: "Guardian_Male.webp",
+                position: "34% 10%",
+                scale: 1.6
+              } },
+        { name: "Barbarian", group: "Steel",
+            text: "Force applied without apology. Barbarians answer danger with raw pressure, heavy hits, and the confidence that some doors open better broken.",
+              tags: ["Aggression", "Strength", "Damage"],
+              artwork: {
+                filename: "Barbarian_Female.webp",
+                position: "50% 22%",
+                scale: 1.2
+              } },
+        { name: "Monk", group: "Steel",
+            text: "Discipline in motion. Monks survive through technique, timing, and inner control rather than hiding behind the heaviest gear.",
+              tags: ["Discipline", "Dodge", "Technique"],
+              artwork: {
+                filename: "Monk_Female.webp",
+                position: "60% 17%",
+                scale: 1.35
+              } },
+        { name: "Ninja", group: "Steel",
+            text: "Hidden violence for darker parties. Ninjas turn speed, silence, and sudden pressure into a way of ending threats before they fully begin.",
+              tags: ["Stealth", "Burst", "Evil"],
+              artwork: {
+                filename: "Ninja_Male.webp",
+                position: "40% 20%",
+                scale: 1.2
+              } },
+        { name: "Ranger", group: "Steel",
+            text: "Fieldcraft with a blade in hand. Rangers read paths, track danger, and bring practical combat sense to the parts of the dungeon that still feel wild.",
+              tags: ["Tracking", "Perception", "Hybrid"],
+              artwork: {
+                filename: "Ranger_Female.webp",
+                position: "45% 17%",
+                scale: 1.5
+              } },
+        { name: "Saboteur", group: "Steel",
+            text: "Saboteurs do not win fair fights; they make fights unfair first. They break enemy plans, exploit openings, and turn systems against their owners.",
+              tags: ["Disruption", "Traps", "Control"],
+              artwork: {
+                filename: "Saboteur_Male.webp",
+                position: "58% 28%",
+                scale: 1
+              } },
+        { name: "Seeker", group: "Cunning",
+            text: "Seekers turn ignorance into an advantage. They read the dungeon, reveal what others miss, and make dangerous expeditions feel less blind.",
+              tags: ["Lore", "Perception", "Utility"],
+              artwork: {
+                filename: "Seeker_Male.webp",
+                position: "30% 22%",
+                scale: 1.2
+              } },
+        { name: "Bard", group: "Cunning",
+            text: "Bards make memory, morale, and song into survival tools. They are for players who like support that feels social, strange, and alive.",
+              tags: ["Songs", "Morale", "Support"],
+              artwork: {
+                filename: "Bard_Male.webp",
+                position: "40% 38%",
+                scale: 1.1
+              } },
+        { name: "Thief", group: "Cunning",
+            text: "Locks, traps, mechanisms, treasure - the Thief handles threats that never roll initiative but can still ruin an expedition.",
+              tags: ["Locks", "Traps", "Treasure"],
+              artwork: {
+                filename: "Thief_Female.webp",
+                position: "40% 20%",
+                scale: 1.15
+              } },
+        { name: "Swashbuckler", group: "Cunning",
+            text: "Charm with a blade behind it. Swashbucklers bring nerve, luck, and enough steel to survive where a cleaner rogue might fold.",
+              tags: ["Charm", "Luck", "Duelist"],
+              artwork: {
+                filename: "Swashbuckler_male.webp",
+                position: "40% 15%",
+                scale: 1.3
+              } },
+        { name: "Apothecary", group: "Cunning",
+            text: "Practical medicine for long descents. Apothecaries keep bodies moving when magic is scarce and the party cannot afford another collapse.",
+              tags: ["Medicine", "Recovery", "Supplies"],
+              artwork: {
+                filename: "Apothecary_Male.webp",
+                position: "45% 27%",
+                scale: 1.15
+              } },
+        { name: "Alchemist", group: "Cunning",
+            text: "Alchemists turn preparation into attrition. Mixtures, reactions, corrosion, and fire make them dangerous long before a blade is drawn.",
+              tags: ["Mixtures", "Attrition", "Fire"],
+              artwork: {
+                filename: "Alchemist_Female.webp",
+                position: "30% 18%",
+                scale: 1.4
+              } },
+        { name: "Mystic", group: "Power",
+            text: "Mystics are the spiritual stabilizers of a party. They heal, restore, and keep expeditions functional when the dungeon starts taking pieces away.",
+              tags: ["Healing", "Cures", "Support"],
+              artwork: {
+                filename: "Mystik_Male.webp",
+                position: "40% 18%",
+                scale: 1.5
+              } },
+        { name: "Wizard", group: "Power",
+            text: "Wizards are dangerous knowledge given shape. They reward patient players who want arcane control, dark answers, and power that grows with understanding.",
+              tags: ["Arcane", "Control", "Lore"],
+              artwork: {
+                filename: "Wizard_Female.webp",
+                position: "50% 25%",
+                scale: 1.25
+              } },
+        { name: "Elemental Mage", group: "Power",
+            text: "Elemental Mages bring direct magical force: burning, freezing, shocking, and breaking enemies with the language of raw damage.",
+              tags: ["Elements", "Damage", "Magic"],
+              artwork: {
+                filename: "Elemental_Mage_Male.webp",
+                position: "40% 25%",
+                scale: 1.4
+              } },
+        { name: "Sorcerer", group: "Power",
+            text: "Sorcerers are ward-makers and survival architects. They turn magic toward protection, resistance, and keeping the party alive against the wrong kind of threat.",
+              tags: ["Wards", "Protection", "Resistance"],
+              artwork: {
+                filename: "Sorcerer_Male.webp",
+                position: "40% 25%",
+                scale: 1
+              } },
+        { name: "Druid", group: "Power",
+            text: "Druids bind healing, nature, and beasts into a gentler kind of power. Their parties feel prepared for a dungeon that still remembers the wild.",
+              tags: ["Nature", "Healing", "Beasts"],
+              artwork: {
+                filename: "Druid_Male.webp",
+                position: "40% 30%",
+                scale: 1
+              } },
+        { name: "Beastmaster", group: "Power",
+            text: "Beastmasters command with teeth. They are for darker parties built around companions, control, and the uneasy bargain of borrowed strength.",
+              tags: ["Companions", "Control", "Command"],
+              artwork: {
+                filename: "Beastmaster_Male.webp",
+                position: "45% 17%",
+                scale: 1.6
+              } },
+        { name: "Paladin", group: "Power",
+            text: "Paladins are conviction in armor: sword, light, protection, and enough healing to keep the line from breaking when darkness pushes back.",
+              tags: ["Light", "Hybrid", "Protection"],
+              artwork: {
+                filename: "Paladin_Male.webp",
+                position: "37% 30%",
+                scale: 1.2
+              } },
+        { name: "Gravewalker", group: "Power",
+            text: "Gravewalkers are the dark mirror of holy power. They use death, attrition, and forbidden command to make the depths fight on their terms.",
+              tags: ["Death Magic", "Undead", "Attrition"],
+              artwork: {
+                filename: "Gravewalker_Female.webp",
+                position: "48% 25%",
+                scale: 1.75
+              } }
       ]
     };
 
-    const codexArtwork = {
-      "Human": "assets/Races_Guilds/Race_Human_Female.webp",
-      "Elf": "assets/Races_Guilds/Race_Elf_Male.webp",
-      "Deep-Elf": "assets/Races_Guilds/Race_Deep-elf_Female.webp",
-      "Kataxi": "assets/Races_Guilds/Race_Kataxi_Female.webp",
-      "Dwarf": "assets/Races_Guilds/Race_Dwarf_Male.webp",
-      "Gnome": "assets/Races_Guilds/Race_Gnome_Female.webp",
-      "Ithrax": "assets/Races_Guilds/Race_Ithrax_Male.webp",
-      "Oromun": "assets/Races_Guilds/Race_Oromun_male.webp",
-      "Skarn": "assets/Races_Guilds/Race_Skarn_Male.webp",
-      "Lignari": "assets/Races_Guilds/Race_Lignari_Neutral.webp",
-      "Adventurer": "assets/Races_Guilds/Adventurer_Female.webp",
-      "Guardian": "assets/Races_Guilds/Guardian_Male.webp",
-      "Barbarian": "assets/Races_Guilds/Barbarian_Female.webp",
-      "Monk": "assets/Races_Guilds/Monk_Female.webp",
-      "Ninja": "assets/Races_Guilds/Ninja_Male.webp",
-      "Ranger": "assets/Races_Guilds/Ranger_Female.webp",
-      "Saboteur": "assets/Races_Guilds/Saboteur_Male.webp",
-      "Seeker": "assets/Races_Guilds/Seeker_Male.webp",
-      "Bard": "assets/Races_Guilds/Bard_Male.webp",
-      "Thief": "assets/Races_Guilds/Thief_Female.webp",
-      "Swashbuckler": "assets/Races_Guilds/Swashbuckler_male.webp",
-      "Apothecary": "assets/Races_Guilds/Apothecary_Male.webp",
-      "Alchemist": "assets/Races_Guilds/Alchemist_Female.webp",
-      "Mystic": "assets/Races_Guilds/Mystik_Male.webp",
-      "Wizard": "assets/Races_Guilds/Wizard_Female.webp",
-      "Elemental Mage": "assets/Races_Guilds/Elemental_Mage_Male.webp",
-      "Sorcerer": "assets/Races_Guilds/Sorcerer_Male.webp",
-      "Druid": "assets/Races_Guilds/Druid_Male.webp",
-      "Beastmaster": "assets/Races_Guilds/Beastmaster_Male.webp",
-      "Paladin": "assets/Races_Guilds/Paladin_Male.webp",
-      "Gravewalker": "assets/Races_Guilds/Gravewalker_Female.webp"
-    };
+    // Artwork paths for codex portraits and depth maps
+    // Both portrait and the depth map must share the same filename, but they are stored in different folders.
+    // To generate depthmaps (free): https://app.artificialstudio.ai/tools/image-depth-map-generator
+    const codexArtworkPath = "assets/Races_Guilds/";
+    const codexArtworkDepthmapPath = "assets/Races_Guilds_DepthMap/";
 
-    // Add an entry here when a portrait needs a different crop in the left-hand list.
-    // `position` uses CSS object-position values; `scale` zooms the image.
-    // position = X & Y coordinates for the focal point of the portrait (e.g., "50% 35%" for centered slightly above the middle)
-    // scale = how much to zoom in on the image (e.g., 1.2 for 20% zoom)
-    const codexArtworkFraming = {
-      "Human": { position: "60% 20%", scale: 1.15 },
-      "Elf": { position: "50% 15%", scale: 1 },
-      "Deep-Elf": { position: "45% 19%", scale: 1.2 },
-      "Kataxi": { position: "70% 23%", scale: 1.1 },
-      "Dwarf": { position: "50% 20%", scale: 1.05 },
-      "Gnome": { position: "50% 25%", scale: 1.5 },
-      "Ithrax": { position: "80% 10%", scale: 1.15 },
-      "Oromun": { position: "48% 10%", scale: 2 },
-      "Skarn": { position: "45% 18%", scale: 1.75 },
-      "Lignari": { position: "42% 27%", scale: 1.6 },
-      "Adventurer": { position: "42% 20%", scale: 1.2 },
-      "Guardian": { position: "34% 10%", scale: 1.6 },
-      "Barbarian": { position: "50% 22%", scale: 1.2 },
-      "Monk": { position: "60% 17%", scale: 1.35 },
-      "Ninja": { position: "40% 20%", scale: 1.2 },
-      "Ranger": { position: "45% 17%", scale: 1.5 },
-      "Saboteur": { position: "58% 20%", scale: 1.8 },
-      "Seeker": { position: "30% 22%", scale: 1.2 },
-      "Bard": { position: "40% 38%", scale: 1.1 },
-      "Thief": { position: "40% 20%", scale: 1.15 },
-      "Swashbuckler": { position: "40% 15%", scale: 1.3 },
-      "Apothecary": { position: "45% 27%", scale: 1.15 },
-      "Alchemist": { position: "30% 18%", scale: 1.4 },
-      "Mystic": { position: "40% 18%", scale: 1.5 },
-      "Wizard": { position: "50% 25%", scale: 1.25 },
-      "Elemental Mage": { position: "40% 25%", scale: 1.4 },
-      "Sorcerer": { position: "40% 25%", scale: 1 },
-      "Druid": { position: "40% 30%", scale: 1 },
-      "Beastmaster": { position: "45% 17%", scale: 1.6 },
-      "Paladin": { position: "37% 30%", scale: 1.2 },
-      "Gravewalker": { position: "48% 25%", scale: 1.75 }
-    };
-
-    const codexList = document.querySelector("[data-codex-list]");
-    const codexDetail = document.querySelector("[data-codex-detail]");
-    const codexDetailCards = Array.from(document.querySelectorAll("[data-codex-detail-card]"));
-    const codexTabs = document.querySelectorAll("[data-codex-tab]");
-    let activeCodexTab = "races";
-    let activeCodexDetailCard = 0;
-    let codexDetailTransitionTimer;
-    let codexListTransitionTimer;
-    let codexDepthPortrait;
-    let activeCodexEntry = codexEntries.races[0];
-
-    function renderCodexDetail(entry, delay = 90) {
-      activeCodexEntry = entry;
-      window.clearTimeout(codexDetailTransitionTimer);
-      codexDetailTransitionTimer = window.setTimeout(() => {
-        const currentCard = codexDetailCards[activeCodexDetailCard];
-        const nextCardIndex = activeCodexDetailCard === 0 ? 1 : 0;
-        const nextCard = codexDetailCards[nextCardIndex];
-
-        nextCard.style.setProperty("--codex-art", `url("${codexArtwork[entry.name]}")`);
-        nextCard.classList.remove("is-depth-enhanced");
-        nextCard.innerHTML = `
-          <p class="codex-detail__type">${activeCodexTab === "races" ? "Race" : entry.group + " Guild"}</p>
-          <h3>${entry.name}</h3>
-          <p>${entry.text}</p>
-          <div class="codex-tags" aria-label="${entry.name} traits">
-            ${entry.tags.map((tag) => `<span>${tag}</span>`).join("")}
-          </div>
-        `;
-        nextCard.setAttribute("aria-hidden", "false");
-        currentCard.setAttribute("aria-hidden", "true");
-        currentCard.classList.remove("is-visible");
-        void nextCard.offsetWidth;
-        nextCard.classList.add("is-visible");
-        codexDepthPortrait?.show(entry.name, nextCard);
-        activeCodexDetailCard = nextCardIndex;
-      }, delay);
-    }
-
-    function renderCodexList({ animate = false } = {}) {
-      const entries = codexEntries[activeCodexTab];
-      const renderEntries = () => {
-        codexList.innerHTML = entries.map((entry, index) => {
-          const group = entry.group ? `<span>${entry.group}</span>` : "";
-          const framing = codexArtworkFraming[entry.name] || {};
-          const cardStyle = `--codex-card-index: ${index}; --codex-card-position: ${framing.position || "50% 35%"}; --codex-card-scale: ${framing.scale || 1};`;
-          return `
-            <button class="codex-choice${index === 0 ? " is-active" : ""}" type="button" data-codex-index="${index}" aria-pressed="${index === 0}" style="${cardStyle}">
-              <img src="${codexArtwork[entry.name]}" alt="" />
-              ${group}
-              <strong>${entry.name}</strong>
-            </button>
-          `;
-        }).join("");
-
-        if (animate) {
-          window.requestAnimationFrame(() => codexList.classList.remove("is-changing"));
-        }
-      };
-
-      window.clearTimeout(codexListTransitionTimer);
-      if (animate) {
-        codexList.classList.add("is-changing");
-        codexListTransitionTimer = window.setTimeout(renderEntries, 120);
-      } else {
-        renderEntries();
-      }
-
-      renderCodexDetail(entries[0], animate ? 120 : 90);
-    }
-
-    codexTabs.forEach((tab) => {
-      tab.addEventListener("click", () => {
-        activeCodexTab = tab.dataset.codexTab;
-        codexTabs.forEach((item) => {
-          const isActive = item === tab;
-          item.classList.toggle("is-active", isActive);
-          item.setAttribute("aria-sele7cted", String(isActive));
-        });
-        renderCodexList({ animate: true });
-      });
-    });
-
-    codexList.addEventListener("click", (event) => {
-      const choice = event.target.closest("[data-codex-index]");
-      if (!choice) {
-        return;
-      }
-      codexList.querySelectorAll(".codex-choice").forEach((item) => {
-        item.classList.toggle("is-active", item === choice);
-        item.setAttribute("aria-pressed", String(item === choice));
-      });
-      renderCodexDetail(codexEntries[activeCodexTab][Number(choice.dataset.codexIndex)]);
-    });
-
-    renderCodexList();
-
-    function initialiseCodexDepthPortraits() {
-      const stage = document.querySelector("[data-codex-depth-stage]");
-      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-      const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
-
-      if (!stage || reducedMotion.matches || !finePointer.matches || !window.PIXI) {
-        return;
-      }
-
-      const artworkEntries = Object.entries(codexArtwork);
-      Promise.all(artworkEntries.map(async ([name, portraitPath]) => {
-        const depthPath = portraitPath.replace("Races_Guilds/", "Races_Guilds_DepthMap/");
-        return [name, await PIXI.Assets.load(depthPath)];
-      }))
-        .then((depthTexturePairs) => {
-          const depthTextures = Object.fromEntries(depthTexturePairs);
-          const app = new PIXI.Application({
-            resizeTo: stage,
-            autoDensity: true,
-            resolution: Math.min(window.devicePixelRatio || 1, 2),
-            backgroundAlpha: 0,
-            antialias: true
-          });
-          stage.appendChild(app.view);
-
-          const createFogLayer = (name) => {
-            const fogLayer = new PIXI.Sprite(PIXI.Texture.WHITE);
-            const filter = new PIXI.Filter(undefined, `
-              precision highp float;
-              varying vec2 vTextureCoord;
-              uniform sampler2D depthMap;
-              uniform vec2 depthUvScale;
-              uniform vec2 depthUvOffset;
-              uniform vec2 fogOffset;
-
-              float hash(vec2 point) {
-                return fract(sin(dot(point, vec2(127.1, 311.7))) * 43758.5453123);
-              }
-
-              float noise(vec2 point) {
-                vec2 cell = floor(point);
-                vec2 local = fract(point);
-                local = local * local * (3.0 - 2.0 * local);
-                return mix(
-                  mix(hash(cell), hash(cell + vec2(1.0, 0.0)), local.x),
-                  mix(hash(cell + vec2(0.0, 1.0)), hash(cell + vec2(1.0, 1.0)), local.x),
-                  local.y
-                );
-              }
-
-              float fogNoise(vec2 point) {
-                float value = 0.0;
-                value += noise(point) * 0.55;
-                value += noise(point * 2.1 + 13.7) * 0.28;
-                value += noise(point * 4.2 + 29.1) * 0.17;
-                return value;
-              }
-
-              void main(void) {
-                vec2 depthUv = vTextureCoord * depthUvScale + depthUvOffset;
-                float actorDepth = texture2D(depthMap, depthUv).r;
-                float farBackgroundMask = 1.0 - smoothstep(0.03, 0.15, actorDepth);
-                float fogDensity = fogNoise(vTextureCoord * vec2(4.2, 6.5) + fogOffset);
-                float smoke = smoothstep(0.50, 0.70, fogDensity);
-                float fogAlpha = farBackgroundMask * smoke * 0.60;
-                gl_FragColor = vec4(vec3(0.64, 0.70, 0.68) * fogAlpha, fogAlpha);
-              }
-            `, {
-              depthMap: depthTextures[name],
-              depthUvScale: [1, 1],
-              depthUvOffset: [0, 0],
-              fogOffset: [0, 0]
-            });
-            fogLayer.filters = [filter];
-            fogLayer.name = name;
-            return fogLayer;
-          };
-
-          const resizeFogLayer = (fogLayer) => {
-            fogLayer.width = app.screen.width;
-            fogLayer.height = app.screen.height;
-            const imageAspect = fogLayer.filters[0].uniforms.depthMap.width / fogLayer.filters[0].uniforms.depthMap.height;
-            const stageAspect = app.screen.width / app.screen.height;
-            let uvScale = [1, 1];
-            let uvOffset = [0, 0];
-            if (stageAspect > imageAspect) {
-              uvScale[1] = imageAspect / stageAspect;
-              uvOffset[1] = (1 - uvScale[1]) / 2;
-            } else {
-              uvScale[0] = stageAspect / imageAspect;
-              uvOffset[0] = (1 - uvScale[0]) / 2;
-            }
-            fogLayer.filters[0].uniforms.depthUvScale = uvScale;
-            fogLayer.filters[0].uniforms.depthUvOffset = uvOffset;
-          };
-          window.addEventListener("resize", () => app.stage.children.forEach(resizeFogLayer));
-
-          let visibleFogLayer;
-          let fogTransitionFrame;
-          const showFogLayer = (name, card) => {
-            if (visibleFogLayer?.name === name) {
-              card.appendChild(stage);
-              return;
-            }
-            window.cancelAnimationFrame(fogTransitionFrame);
-            app.stage.children
-              .filter((fogLayer) => fogLayer !== visibleFogLayer)
-              .forEach((fogLayer) => {
-                app.stage.removeChild(fogLayer);
-                fogLayer.destroy({ children: true, texture: false, baseTexture: false });
-              });
-            if (visibleFogLayer) {
-              visibleFogLayer.alpha = 1;
-            }
-            const previousFogLayer = visibleFogLayer;
-            const nextFogLayer = createFogLayer(name);
-            resizeFogLayer(nextFogLayer);
-            nextFogLayer.alpha = previousFogLayer ? 0 : 1;
-            app.stage.addChild(nextFogLayer);
-            visibleFogLayer = nextFogLayer;
-            card.appendChild(stage);
-
-            if (!previousFogLayer) {
-              return;
-            }
-            const transitionStart = performance.now();
-            const transitionDuration = 260;
-            const fadeFogLayer = (now) => {
-              const progress = Math.min(1, (now - transitionStart) / transitionDuration);
-              previousFogLayer.alpha = 1 - progress;
-              nextFogLayer.alpha = progress;
-              if (progress < 1) {
-                fogTransitionFrame = window.requestAnimationFrame(fadeFogLayer);
-                return;
-              }
-              app.stage.removeChild(previousFogLayer);
-              previousFogLayer.destroy({ children: true, texture: false, baseTexture: false });
-            };
-            fogTransitionFrame = window.requestAnimationFrame(fadeFogLayer);
-          };
-
-          let isVisible = true;
-
-          new IntersectionObserver(([entry]) => {
-            isVisible = entry.isIntersecting;
-          }, { threshold: 0.1 }).observe(codexDetail);
-
-          app.ticker.add(() => {
-            if (!isVisible || document.hidden) {
-              return;
-            }
-            const fogTime = performance.now() / 1000;
-            const fogOffset = [fogTime * 0.120, Math.sin(fogTime * 0.32) * 0.12];
-            app.stage.children.forEach((fogLayer) => {
-              fogLayer.filters[0].uniforms.fogOffset = fogOffset;
-            });
-          });
-
-          codexDepthPortrait = { show: showFogLayer };
-          showFogLayer(activeCodexEntry.name, document.querySelector("[data-codex-detail-card].is-visible"));
-          stage.classList.remove("is-ready");
-          void stage.offsetWidth;
-          window.setTimeout(() => stage.classList.add("is-ready"), 80);
-        })
-        .catch(() => {
-          // Keep the existing CSS background when the renderer or either texture cannot load.
-        });
-    }
-
-    window.addEventListener("load", initialiseCodexDepthPortraits, { once: true });
-
-    const siteMenu = document.querySelector(".site-menu");
-    const menuToggle = document.querySelector(".menu-toggle");
-    const menuPanel = document.querySelector(".menu-panel");
-
-    menuToggle.addEventListener("click", () => {
-      const isOpen = siteMenu.classList.toggle("is-open");
-      menuToggle.setAttribute("aria-expanded", String(isOpen));
-    });
-
-    menuPanel.addEventListener("click", (event) => {
-      if (event.target.closest("a")) {
-        siteMenu.classList.remove("is-open");
-        menuToggle.setAttribute("aria-expanded", "false");
-      }
-    });
-
-    /* scroll the full screen sections */
-    const hero = document.querySelector(".hero");
-    const page = document.querySelector(".page");
-    const codexSection = document.querySelector(".codex-section");
-    const snapSections = [hero, page, codexSection];
-    let scrollJumpLocked = false;
-    function scrollToSection(target) {
-      scrollJumpLocked = true;
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
-      window.setTimeout(() => {
-        scrollJumpLocked = false;
-      }, 750);
-    }
-    function scrollerHeroPage(e) {
-      if (e.target.closest(".codex-list")) {
-        return;
-      }
-      if (scrollJumpLocked || e.ctrlKey || e.deltaY === 0) {
-        return;
-      }
-      const scrollTop = window.scrollY;
-      const threshold = 8;
-      const currentIndex = snapSections.findIndex((section, index) => {
-        const nextSection = snapSections[index + 1];
-        const sectionTop = section.offsetTop;
-        const sectionBottom = nextSection ? nextSection.offsetTop : section.offsetTop + section.offsetHeight;
-        return scrollTop >= sectionTop - threshold && scrollTop < sectionBottom - threshold;
-      });
-      if (currentIndex === -1) {
-        return;
-      }
-      if (e.deltaY > 0 && currentIndex < snapSections.length - 1) {
-        e.preventDefault();
-        scrollToSection(snapSections[currentIndex + 1]);
-        return;
-      }
-      if (e.deltaY < 0 && scrollTop <= snapSections[currentIndex].offsetTop + threshold && currentIndex > 0) {
-        e.preventDefault();
-        scrollToSection(snapSections[currentIndex - 1]);
-      }
-    }
-    window.addEventListener("wheel", scrollerHeroPage, { passive: false });
-
-    /* parallax effect on Lathmar logo */
-    const heroContent = document.querySelector(".hero__title-logo");
-    window.addEventListener("scroll", () => {
-      const scrolled = window.scrollY;
-      heroContent.style.transform = `translateY(${scrolled * 0.3}px)`;
-    });
   </script>
+  <script src="script.js"></script>
 
 </body>
 </html>

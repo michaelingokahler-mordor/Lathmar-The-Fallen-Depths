@@ -121,22 +121,6 @@
     <p>© 2026 Michael Kahler. Lathmar: The Fallen Depths. All rights reserved.</p>
   </footer>
 
-  <script>
-    const siteMenu = document.querySelector(".site-menu");
-    const menuToggle = document.querySelector(".menu-toggle");
-    const menuPanel = document.querySelector(".menu-panel");
-
-    menuToggle.addEventListener("click", () => {
-      const isOpen = siteMenu.classList.toggle("is-open");
-      menuToggle.setAttribute("aria-expanded", String(isOpen));
-    });
-
-    menuPanel.addEventListener("click", (event) => {
-      if (event.target.closest("a")) {
-        siteMenu.classList.remove("is-open");
-        menuToggle.setAttribute("aria-expanded", "false");
-      }
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
