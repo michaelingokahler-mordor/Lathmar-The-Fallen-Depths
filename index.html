@@ -390,6 +390,9 @@
       }, 750);
     }
     function scrollerHeroPage(e) {
+      if (e.target.closest(".codex-list")) {
+        return;
+      }
       if (scrollJumpLocked || e.ctrlKey || e.deltaY === 0) {
         return;
       }

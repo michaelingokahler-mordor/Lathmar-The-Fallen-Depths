@@ -482,6 +482,7 @@ h1 {
 .codex-list {
   min-height: 0;
   overflow: auto;
+  overscroll-behavior-y: contain;
   display: grid;
   grid-template-columns: 1fr;
   gap: 0.45rem;
@@ -819,6 +820,7 @@ h1 {
   .codex-layout {
     grid-template-columns: 1fr;
     height: auto;
+    gap: 1.5rem;
   }
 
   .codex-intro,
