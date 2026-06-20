@@ -163,19 +163,22 @@
         <div class="codex-body">
           <div class="codex-list" data-codex-list aria-label="Select a race or guild"></div>
 
-          <article class="codex-detail is-visible" data-codex-detail aria-live="polite">
-            <p class="codex-detail__type">Race</p>
-            <h3>Human</h3>
-            <p>
-              Flexible survivors who fit almost any party plan. Humans bring clean choices,
-              fast adaptation, and the freedom to become what the expedition needs most.
-            </p>
-            <div class="codex-tags" aria-label="Human traits">
-              <span>Flexible</span>
-              <span>Adaptable</span>
-              <span>First Party</span>
-            </div>
-          </article>
+          <div class="codex-detail" data-codex-detail aria-live="polite">
+            <article class="codex-detail__card is-visible" data-codex-detail-card aria-hidden="false">
+              <p class="codex-detail__type">Race</p>
+              <h3>Human</h3>
+              <p>
+                Flexible survivors who fit almost any party plan. Humans bring clean choices,
+                fast adaptation, and the freedom to become what the expedition needs most.
+              </p>
+              <div class="codex-tags" aria-label="Human traits">
+                <span>Flexible</span>
+                <span>Adaptable</span>
+                <span>First Party</span>
+              </div>
+            </article>
+            <article class="codex-detail__card" data-codex-detail-card aria-hidden="true"></article>
+          </div>
         </div>
       </div>
     </div>
@@ -298,14 +301,22 @@
 
     const codexList = document.querySelector("[data-codex-list]");
     const codexDetail = document.querySelector("[data-codex-detail]");
+    const codexDetailCards = Array.from(document.querySelectorAll("[data-codex-detail-card]"));
     const codexTabs = document.querySelectorAll("[data-codex-tab]");
     let activeCodexTab = "races";
+    let activeCodexDetailCard = 0;
+    let codexDetailTransitionTimer;
+    let codexListTransitionTimer;
 
-    function renderCodexDetail(entry) {
-      codexDetail.classList.remove("is-visible");
-      window.setTimeout(() => {
-        codexDetail.style.setProperty("--codex-art", `url("${codexArtwork[entry.name]}")`);
-        codexDetail.innerHTML = `
+    function renderCodexDetail(entry, delay = 90) {
+      window.clearTimeout(codexDetailTransitionTimer);
+      codexDetailTransitionTimer = window.setTimeout(() => {
+        const currentCard = codexDetailCards[activeCodexDetailCard];
+        const nextCardIndex = activeCodexDetailCard === 0 ? 1 : 0;
+        const nextCard = codexDetailCards[nextCardIndex];
+
+        nextCard.style.setProperty("--codex-art", `url("${codexArtwork[entry.name]}")`);
+        nextCard.innerHTML = `
           <p class="codex-detail__type">${activeCodexTab === "races" ? "Race" : entry.group + " Guild"}</p>
           <h3>${entry.name}</h3>
           <p>${entry.text}</p>
@@ -313,25 +324,45 @@
             ${entry.tags.map((tag) => `<span>${tag}</span>`).join("")}
           </div>
         `;
-        codexDetail.classList.add("is-visible");
-      }, 90);
+        nextCard.setAttribute("aria-hidden", "false");
+        currentCard.setAttribute("aria-hidden", "true");
+        currentCard.classList.remove("is-visible");
+        void nextCard.offsetWidth;
+        nextCard.classList.add("is-visible");
+        activeCodexDetailCard = nextCardIndex;
+      }, delay);
     }
 
-    function renderCodexList() {
+    function renderCodexList({ animate = false } = {}) {
       const entries = codexEntries[activeCodexTab];
-      codexList.innerHTML = entries.map((entry, index) => {
-        const group = entry.group ? `<span>${entry.group}</span>` : "";
-        const framing = codexArtworkFraming[entry.name] || {};
-        const cardStyle = `--codex-card-position: ${framing.position || "50% 35%"}; --codex-card-scale: ${framing.scale || 1};`;
-        return `
-          <button class="codex-choice${index === 0 ? " is-active" : ""}" type="button" data-codex-index="${index}" aria-pressed="${index === 0}" style="${cardStyle}">
-            <img src="${codexArtwork[entry.name]}" alt="" />
-            ${group}
-            <strong>${entry.name}</strong>
-          </button>
-        `;
-      }).join("");
-      renderCodexDetail(entries[0]);
+      const renderEntries = () => {
+        codexList.innerHTML = entries.map((entry, index) => {
+          const group = entry.group ? `<span>${entry.group}</span>` : "";
+          const framing = codexArtworkFraming[entry.name] || {};
+          const cardStyle = `--codex-card-index: ${index}; --codex-card-position: ${framing.position || "50% 35%"}; --codex-card-scale: ${framing.scale || 1};`;
+          return `
+            <button class="codex-choice${index === 0 ? " is-active" : ""}" type="button" data-codex-index="${index}" aria-pressed="${index === 0}" style="${cardStyle}">
+              <img src="${codexArtwork[entry.name]}" alt="" />
+              ${group}
+              <strong>${entry.name}</strong>
+            </button>
+          `;
+        }).join("");
+
+        if (animate) {
+          window.requestAnimationFrame(() => codexList.classList.remove("is-changing"));
+        }
+      };
+
+      window.clearTimeout(codexListTransitionTimer);
+      if (animate) {
+        codexList.classList.add("is-changing");
+        codexListTransitionTimer = window.setTimeout(renderEntries, 120);
+      } else {
+        renderEntries();
+      }
+
+      renderCodexDetail(entries[0], animate ? 120 : 90);
     }
 
     codexTabs.forEach((tab) => {
@@ -342,7 +373,7 @@
           item.classList.toggle("is-active", isActive);
           item.setAttribute("aria-sele7cted", String(isActive));
         });
-        renderCodexList();
+        renderCodexList({ animate: true });
       });
     });
 

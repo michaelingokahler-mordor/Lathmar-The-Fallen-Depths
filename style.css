@@ -498,6 +498,12 @@ h1 {
   padding-right: 0.25rem;
   scrollbar-color: rgba(239, 206, 123, 0.66) rgba(7, 7, 7, 0.6);
   scrollbar-width: thin;
+  transition: opacity 120ms ease, transform 120ms ease;
+}
+
+.codex-list.is-changing {
+  opacity: 0;
+  transform: translateY(-0.35rem);
 }
 
 .codex-list::-webkit-scrollbar {
@@ -531,6 +537,20 @@ h1 {
   overflow: hidden;
   text-align: left;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.32) inset;
+  animation: codex-choice-enter 180ms ease both;
+  animation-delay: calc(var(--codex-card-index, 0) * 22ms);
+}
+
+@keyframes codex-choice-enter {
+  from {
+    opacity: 0;
+    transform: translateY(0.5rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .codex-choice::after {
@@ -593,6 +613,14 @@ h1 {
   opacity: 1;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .codex-list,
+  .codex-choice {
+    animation: none;
+    transition: none;
+  }
+}
+
 .codex-choice:hover::after,
 .codex-choice:focus-visible::after,
 .codex-choice.is-active::after {
@@ -601,24 +629,30 @@ h1 {
 
 .codex-detail {
   min-height: 100%;
+  position: relative;
+  border: 1px solid rgba(239, 206, 123, 0.26);
+  overflow: hidden;
+}
+
+.codex-detail__card {
+  position: absolute;
+  inset: 0;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   padding: clamp(1.4rem, 3vw, 2.4rem);
-  border: 1px solid rgba(239, 206, 123, 0.26);
   background:
     radial-gradient(ellipse 105% 78% at 30% 100%, rgba(8, 7, 6, 0.9) 0%, rgba(8, 7, 6, 0.56) 67%, transparent 82%),
     var(--codex-art, url("assets/Races_Guilds/Race_Human_Female.webp"));
   background-position: center;
   background-size: cover;
   opacity: 0;
-  transform: translateY(0.35rem);
-  transition: opacity 160ms ease, transform 160ms ease;
+  pointer-events: none;
+  transition: opacity 260ms ease-in-out;
 }
 
-.codex-detail.is-visible {
+.codex-detail__card.is-visible {
   opacity: 1;
-  transform: translateY(0);
 }
 
 .codex-detail__type {
