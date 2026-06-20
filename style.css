@@ -634,9 +634,30 @@ h1 {
   overflow: hidden;
 }
 
+.codex-depth-stage {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1.2s ease-out;
+}
+
+.codex-depth-stage.is-ready {
+  opacity: 1;
+}
+
+.codex-depth-stage canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .codex-detail__card {
   position: absolute;
   inset: 0;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -653,6 +674,11 @@ h1 {
 
 .codex-detail__card.is-visible {
   opacity: 1;
+}
+
+.codex-detail__card > :not(.codex-depth-stage) {
+  position: relative;
+  z-index: 2;
 }
 
 .codex-detail__type {
