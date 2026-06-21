@@ -136,9 +136,8 @@ if (typeof codexEntries !== "undefined") {
         .then((depthTexturePairs) => {
           const depthTextures = Object.fromEntries(depthTexturePairs);
           const app = new PIXI.Application({
-            resizeTo: stage,
             autoDensity: true,
-            resolution: Math.min(window.devicePixelRatio || 1, 2),
+            resolution: 1,
             backgroundAlpha: 0,
             antialias: true
           });
