@@ -180,7 +180,7 @@ if (typeof codexEntries !== "undefined") {
               void main(void) {
                 vec2 depthUv = vTextureCoord * depthUvScale + depthUvOffset;
                 float actorDepth = texture2D(depthMap, depthUv).r;
-                float farBackgroundMask = 1.0 - smoothstep(0.03, 0.15, actorDepth);
+                float farBackgroundMask = 1.0 - smoothstep(0.01, 0.04, actorDepth);
                 float fogDensity = fogNoise(vTextureCoord * vec2(4.2, 6.5) + fogOffset);
                 float smoke = smoothstep(0.50, 0.70, fogDensity);
                 float fogAlpha = farBackgroundMask * smoke * 0.60;
