@@ -119,8 +119,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Diphylleia&amp;display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../../style.css" />
-  <link rel="stylesheet" href="chronicle.css" />
+  <link rel="stylesheet" href="../../style.css?v=20260921-3" />
+  <link rel="stylesheet" href="chronicle.css?v=20260921-2" />
 </head>
 
 <body class="chronicle-page">
@@ -135,6 +135,7 @@
     <nav class="menu-panel" id="site-menu-panel" aria-label="Site navigation">
       <a href="../../index.html">Home</a>
       <a href="../">World overview</a>
+      <a href="#ages">Explore the Ages</a>
       <a href="#complete-chronicle">Read the Chronicle</a>
       <a href="../peoples/">The Peoples</a>
       <a href="../../index.html#races-guilds">Races &amp; Guilds</a>
@@ -158,13 +159,77 @@
       </blockquote>
 
       <div class="chronicle-actions">
-        <a class="button button--primary" href="#complete-chronicle">Read the Chronicle</a>
+        <a class="button button--primary" href="#ages">Explore the Ages</a>
         <a class="button" href="../peoples/">Meet the Peoples</a>
       </div>
     </div>
   </header>
 
   <main>
+    <section class="ages-section" id="ages" aria-labelledby="ages-title">
+      <div class="ages-layout">
+        <header class="ages-intro">
+          <p class="section-kicker">Five Turning Points</p>
+          <h2 id="ages-title">The Ages of Aeltharion</h2>
+          <p>
+            Every age leaves something beneath the next. Follow the history from the elemental wars
+            to the sealed city of Lathmar, then enter the Chronicle for the complete account.
+          </p>
+        </header>
+
+        <nav class="ages-timeline" aria-label="The ages of Aeltharion">
+          <a class="ages-entry" href="#age-before-ages" data-age-link="age-before-ages">
+            <span class="ages-entry__period">Before the reckoning</span>
+            <span class="ages-entry__marker" aria-hidden="true">00</span>
+            <span class="ages-entry__copy">
+              <strong>The Age Before Ages</strong>
+              <span>Giants and dragons break the old world, leaving the younger peoples to rise among its wounds.</span>
+            </span>
+          </a>
+
+          <a class="ages-entry" href="#first-age" data-age-link="first-age">
+            <span class="ages-entry__period">The First Age</span>
+            <span class="ages-entry__marker" aria-hidden="true">I</span>
+            <span class="ages-entry__copy">
+              <strong>The Fall of Kragmor</strong>
+              <span>Mithril divides Elves and Dwarves. The mines of Karagdum reach the Source of Corruption.</span>
+            </span>
+          </a>
+
+          <a class="ages-entry" href="#second-age" data-age-link="second-age">
+            <span class="ages-entry__period">The Second Age</span>
+            <span class="ages-entry__marker" aria-hidden="true">II</span>
+            <span class="ages-entry__copy">
+              <strong>The Age of Ambition</strong>
+              <span>Tharondir rises above the gate, empires expand, and Xorim Dhar shatters the Spear of Destiny.</span>
+            </span>
+          </a>
+
+          <a class="ages-entry" href="#third-age" data-age-link="third-age">
+            <span class="ages-entry__period">The Third Age</span>
+            <span class="ages-entry__marker" aria-hidden="true">III</span>
+            <span class="ages-entry__copy">
+              <strong>The Rise of Lathmar</strong>
+              <span>A city of guilds brings hope above Karagdum while slavers, cults, and demons gather below.</span>
+            </span>
+          </a>
+
+          <a class="ages-entry" href="#fourth-age" data-age-link="fourth-age">
+            <span class="ages-entry__period">The Fourth Age</span>
+            <span class="ages-entry__marker" aria-hidden="true">IV</span>
+            <span class="ages-entry__copy">
+              <strong>The Breaking of Ways</strong>
+              <span>The Flattening breaks the meaning of distance. A shield saves Lathmar and seals it away.</span>
+            </span>
+          </a>
+        </nav>
+
+        <div class="ages-action">
+          <a class="button button--primary" href="#complete-chronicle">Read the Chronicle</a>
+        </div>
+      </div>
+    </section>
+
     <section class="chronicle-reader" id="complete-chronicle" aria-labelledby="complete-chronicle-title">
       <div class="chronicle-section-heading chronicle-section-heading--reader">
         <p class="section-kicker">The Complete Account</p>

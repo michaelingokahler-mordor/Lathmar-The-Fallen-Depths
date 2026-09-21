@@ -69,7 +69,7 @@
     }
   </script>
 
-  <link rel="stylesheet" href="style.css?v=20260921-2" />
+  <link rel="stylesheet" href="style.css?v=20260921-3" />
   <script src="https://cdn.jsdelivr.net/npm/pixi.js@7.4.2/dist/pixi.min.js" defer></script>
 </head>
 
@@ -86,7 +86,7 @@
       <a href="#top">Home</a>
       <a href="#about">About</a>
       <a href="#races-guilds">Races &amp; Guilds</a>
-      <a href="world/">The World</a>
+      <a href="#archive">The World</a>
       <a href="legal.html">Imprint &amp; Credits</a>
     </nav>
   </div>
@@ -225,66 +225,41 @@
     </div>
   </section>
 
-  <section class="ages-section" id="ages" aria-labelledby="ages-title">
-    <div class="ages-layout">
-      <header class="ages-intro">
-        <p class="section-kicker">Five Turning Points</p>
-        <h2 id="ages-title">The Ages of Aeltharion</h2>
+  <section class="archive-section" id="archive" aria-labelledby="archive-title">
+    <div class="archive-layout">
+      <header class="archive-intro">
+        <p class="section-kicker">The Archive of Aeltharion</p>
+        <h2 id="archive-title">Choose a record</h2>
         <p>
-          Every age leaves something beneath the next. Follow the history from the elemental wars
-          to the sealed city of Lathmar, then enter the Chronicle for the complete account.
+          Each collection follows one thread through the same world. Read the ages in order,
+          meet its peoples, or return later as further volumes are opened.
         </p>
       </header>
 
-      <nav class="ages-timeline" aria-label="The ages of Aeltharion">
-        <a class="ages-entry" href="world/chronicle/#age-before-ages">
-          <span class="ages-entry__period">Before the reckoning</span>
-          <span class="ages-entry__marker" aria-hidden="true">00</span>
-          <span class="ages-entry__copy">
-            <strong>The Age Before Ages</strong>
-            <span>Giants and dragons break the old world, leaving the younger peoples to rise among its wounds.</span>
-          </span>
+      <div class="archive-volume-grid">
+        <a class="archive-volume archive-volume--chronicle" href="world/chronicle/">
+          <span class="archive-volume__number">01</span>
+          <span class="archive-volume__type">History</span>
+          <h3>The Chronicle of Aeltharion</h3>
+          <p>From the wars of giants and dragons to the Fourth Age and the breaking of ways beneath Lathmar.</p>
+          <span class="archive-volume__action">Read the Chronicle <span aria-hidden="true">→</span></span>
         </a>
 
-        <a class="ages-entry" href="world/chronicle/#first-age">
-          <span class="ages-entry__period">The First Age</span>
-          <span class="ages-entry__marker" aria-hidden="true">I</span>
-          <span class="ages-entry__copy">
-            <strong>The Fall of Kragmor</strong>
-            <span>Mithril divides Elves and Dwarves. The mines of Karagdum reach the Source of Corruption.</span>
-          </span>
+        <a class="archive-volume archive-volume--peoples" href="world/peoples/">
+          <span class="archive-volume__number">02</span>
+          <span class="archive-volume__type">Peoples</span>
+          <h3>The Peoples of Aeltharion</h3>
+          <p>Ten playable peoples, each shaped by a different inheritance, homeland, and place in the present age.</p>
+          <span class="archive-volume__action">Meet the Peoples <span aria-hidden="true">→</span></span>
         </a>
 
-        <a class="ages-entry" href="world/chronicle/#second-age">
-          <span class="ages-entry__period">The Second Age</span>
-          <span class="ages-entry__marker" aria-hidden="true">II</span>
-          <span class="ages-entry__copy">
-            <strong>The Age of Ambition</strong>
-            <span>Tharondir rises above the gate, empires expand, and Xorim Dhar shatters the Spear of Destiny.</span>
-          </span>
-        </a>
-
-        <a class="ages-entry" href="world/chronicle/#third-age">
-          <span class="ages-entry__period">The Third Age</span>
-          <span class="ages-entry__marker" aria-hidden="true">III</span>
-          <span class="ages-entry__copy">
-            <strong>The Rise of Lathmar</strong>
-            <span>A city of guilds brings hope above Karagdum while slavers, cults, and demons gather below.</span>
-          </span>
-        </a>
-
-        <a class="ages-entry" href="world/chronicle/#fourth-age">
-          <span class="ages-entry__period">The Fourth Age</span>
-          <span class="ages-entry__marker" aria-hidden="true">IV</span>
-          <span class="ages-entry__copy">
-            <strong>The Breaking of Ways</strong>
-            <span>The Flattening breaks the meaning of distance. A shield saves Lathmar and seals it away.</span>
-          </span>
-        </a>
-      </nav>
-
-      <div class="ages-action">
-        <a class="button button--primary" href="world/chronicle/">Read the Chronicle</a>
+        <article class="archive-volume archive-volume--guilds is-forthcoming" aria-labelledby="archive-guilds-title">
+          <span class="archive-volume__number">03</span>
+          <span class="archive-volume__type">Guilds</span>
+          <h3 id="archive-guilds-title">The Guilds of Lathmar</h3>
+          <p>The orders, disciplines, and rival traditions that decide who is prepared to enter the depths.</p>
+          <span class="archive-volume__action">Volume in preparation</span>
+        </article>
       </div>
     </div>
   </section>
