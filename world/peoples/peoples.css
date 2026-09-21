@@ -1,0 +1,578 @@
+.peoples-page {
+  --peoples-line: rgba(201, 163, 90, 0.28);
+  --peoples-line-strong: rgba(239, 206, 123, 0.64);
+  background:
+    radial-gradient(circle at 50% 0, rgba(112, 76, 35, 0.22), transparent 42rem),
+    #080706;
+}
+
+.peoples-hero {
+  position: relative;
+  min-height: 78svh;
+  display: grid;
+  place-items: end start;
+  overflow: hidden;
+  border-bottom: 1px solid var(--peoples-line);
+  background: #050403;
+}
+
+.peoples-hero__image,
+.peoples-hero__veil {
+  position: absolute;
+  inset: 0;
+}
+
+.peoples-hero__image {
+  background-image: url("../../assets/Races_Guilds/Race_Human_Female.webp");
+  background-position: 68% 18%;
+  background-size: cover;
+  filter: saturate(0.66) contrast(1.1) brightness(0.62);
+  transform: scale(1.035);
+}
+
+.peoples-hero__veil {
+  background:
+    linear-gradient(90deg, rgba(3, 3, 3, 0.95) 0%, rgba(4, 3, 2, 0.8) 48%, rgba(2, 2, 2, 0.18) 82%),
+    linear-gradient(0deg, #080706 0%, transparent 52%),
+    radial-gradient(circle at 70% 30%, rgba(209, 165, 80, 0.14), transparent 28rem);
+}
+
+.peoples-hero__content {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 1240px);
+  margin-inline: auto;
+  padding: clamp(7rem, 13vw, 11rem) clamp(1.25rem, 7vw, 5rem) clamp(4rem, 8vw, 7rem);
+}
+
+.peoples-backlink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 3.25rem;
+  color: #d3c29e;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.peoples-backlink::before {
+  content: "←";
+  color: var(--gold);
+  font-size: 1rem;
+}
+
+.peoples-kicker {
+  margin: 0 0 0.9rem;
+  color: var(--gold-bright);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.peoples-hero h1 {
+  max-width: 1040px;
+  margin: 0;
+  color: #f3e4bf;
+  font-size: clamp(3.1rem, 7.7vw, 7.4rem);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 0.92;
+  text-shadow: 0 0.35rem 1.8rem rgba(0, 0, 0, 0.84);
+}
+
+.peoples-subtitle {
+  max-width: 760px;
+  margin: 1.45rem 0 0;
+  color: #ddcda9;
+  font-size: clamp(1.05rem, 2vw, 1.45rem);
+  letter-spacing: 0.035em;
+}
+
+.peoples-intro {
+  max-width: 690px;
+  margin: 1.55rem 0 2rem;
+  color: #b9aa8d;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1rem, 1.5vw, 1.12rem);
+  line-height: 1.72;
+}
+
+.peoples-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.peoples-directory,
+.peoples-closing {
+  width: min(100%, 1240px);
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 6vw, 4.5rem);
+}
+
+.peoples-directory {
+  padding-top: clamp(4.5rem, 8vw, 7rem);
+  padding-bottom: clamp(5rem, 10vw, 9rem);
+  scroll-margin-top: 1rem;
+}
+
+.peoples-section-heading {
+  max-width: 720px;
+  margin-bottom: 2.8rem;
+}
+
+.peoples-section-heading h2,
+.peoples-closing h2 {
+  margin: 0;
+  color: #f0dfb9;
+  font-size: clamp(2.2rem, 5vw, 4.4rem);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.peoples-section-heading > p:last-child {
+  margin: 1.2rem 0 0;
+  color: var(--muted);
+  font-size: 1.04rem;
+  line-height: 1.75;
+}
+
+.people-index {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.65rem;
+  margin-bottom: clamp(3.5rem, 7vw, 6rem);
+}
+
+.people-index__entry {
+  position: relative;
+  min-height: 6.5rem;
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1fr);
+  align-content: center;
+  gap: 0.15rem 1rem;
+  padding: 1rem 1.2rem;
+  border: 1px solid rgba(201, 163, 90, 0.25);
+  overflow: hidden;
+  color: var(--text);
+  background: #0c0a08;
+  isolation: isolate;
+  transition: border-color 160ms ease, transform 160ms ease, background-color 160ms ease;
+}
+
+.people-index__entry::before,
+.people-index__entry::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+
+.people-index__entry::before {
+  background-image: var(--people-thumb);
+  background-position: var(--people-position, center);
+  background-size: cover;
+  filter: saturate(0.55) contrast(1.05) brightness(0.48);
+  transform: scale(1.04);
+}
+
+.people-index__entry::after {
+  z-index: -1;
+  background: linear-gradient(90deg, rgba(7, 6, 5, 0.98) 0%, rgba(7, 6, 5, 0.87) 56%, rgba(7, 6, 5, 0.38));
+}
+
+.people-index__entry > span {
+  grid-row: 1 / 3;
+  align-self: center;
+  color: var(--gold);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+}
+
+.people-index__entry strong {
+  color: #f0dfb9;
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.people-index__entry small {
+  color: #ad9d82;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.people-index__entry:hover,
+.people-index__entry:focus-visible,
+.people-index__entry.is-active {
+  border-color: rgba(239, 206, 123, 0.76);
+  background-color: #171008;
+  text-decoration: none;
+  transform: translateY(-0.1rem);
+}
+
+.people-index__entry.is-active strong {
+  color: #fff0ca;
+}
+
+.people-records {
+  display: grid;
+  gap: 1rem;
+}
+
+.people-record {
+  border: 1px solid rgba(201, 163, 90, 0.3);
+  background:
+    linear-gradient(135deg, rgba(51, 37, 23, 0.32), rgba(10, 8, 6, 0.8)),
+    rgba(15, 12, 9, 0.84);
+  box-shadow: 0 1.4rem 3.4rem rgba(0, 0, 0, 0.26);
+  scroll-margin-top: 1rem;
+}
+
+.people-record[open] {
+  border-color: rgba(239, 206, 123, 0.58);
+  background:
+    linear-gradient(145deg, rgba(71, 51, 28, 0.26), rgba(12, 9, 7, 0.93)),
+    rgba(15, 12, 9, 0.9);
+}
+
+.people-record summary {
+  display: grid;
+  grid-template-columns: 4.4rem minmax(0, 1fr) 2rem;
+  align-items: center;
+  gap: 1.2rem;
+  min-height: 7.4rem;
+  padding: 1.3rem clamp(1.2rem, 3vw, 2.2rem);
+  list-style: none;
+  cursor: pointer;
+}
+
+.people-record summary::-webkit-details-marker {
+  display: none;
+}
+
+.people-record summary:focus-visible {
+  outline: 2px solid var(--gold-bright);
+  outline-offset: 3px;
+}
+
+.people-record__number {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 3.4rem;
+  height: 3.4rem;
+  color: var(--gold-bright);
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.people-record__number::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--peoples-line-strong);
+  transform: rotate(45deg);
+}
+
+.people-record__heading {
+  display: grid;
+  gap: 0.18rem;
+}
+
+.people-record__heading small {
+  color: #8fcaba;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.people-record__heading strong {
+  color: #eadab6;
+  font-size: clamp(1.45rem, 3vw, 2.35rem);
+  font-weight: 400;
+  line-height: 1.05;
+}
+
+.people-record__heading em {
+  color: #a99a7e;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.people-record__toggle {
+  position: relative;
+  width: 1.35rem;
+  height: 1.35rem;
+}
+
+.people-record__toggle::before,
+.people-record__toggle::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 1px;
+  background: var(--gold-bright);
+  transform: translate(-50%, -50%);
+  transition: transform 180ms ease;
+}
+
+.people-record__toggle::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.people-record[open] .people-record__toggle::after {
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.people-record__body {
+  display: grid;
+  grid-template-columns: minmax(15rem, 0.72fr) minmax(0, 1.55fr);
+  gap: clamp(1.7rem, 5vw, 4.5rem);
+  padding: clamp(1.5rem, 4vw, 3.5rem) clamp(1.3rem, 5vw, 4.5rem) clamp(3rem, 7vw, 5.5rem);
+  border-top: 1px solid rgba(201, 163, 90, 0.18);
+}
+
+.people-record__portrait {
+  position: sticky;
+  top: 1.5rem;
+  min-height: 29rem;
+  margin: 0;
+  align-self: start;
+  border: 1px solid rgba(239, 206, 123, 0.3);
+  overflow: hidden;
+  background: #070605;
+  box-shadow: 0 1.4rem 3rem rgba(0, 0, 0, 0.34);
+}
+
+.people-record__portrait::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(0deg, rgba(5, 4, 3, 0.96) 0%, transparent 38%),
+    radial-gradient(circle at 50% 24%, transparent 30%, rgba(5, 4, 3, 0.24) 100%);
+  pointer-events: none;
+}
+
+.people-record__portrait img {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: var(--people-art-size, 100%);
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--people-art-position, center);
+  filter: saturate(0.86) contrast(1.04) brightness(0.8);
+  transform: translateX(-50%);
+}
+
+.people-record__portrait figcaption {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  left: 1rem;
+  z-index: 1;
+  color: #dfcfad;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.people-record__copy {
+  max-width: 760px;
+  color: #d5c7a9;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.02rem, 1.5vw, 1.12rem);
+  line-height: 1.83;
+}
+
+.people-record__copy p {
+  margin: 0 0 1.45rem;
+}
+
+.people-record__lead {
+  color: #ead9b6;
+  font-size: 1.12em;
+}
+
+.people-record__copy h3 {
+  margin: 3.4rem 0 1.15rem;
+  padding-top: 1.65rem;
+  border-top: 1px solid rgba(201, 163, 90, 0.2);
+  color: #f0dfb9;
+  font-family: "Diphylleia", Georgia, "Times New Roman", serif;
+  font-size: clamp(1.55rem, 3vw, 2.35rem);
+  font-weight: 400;
+  line-height: 1.18;
+}
+
+.people-record__copy h3:first-of-type {
+  margin-top: 2.6rem;
+}
+
+.people-record__return {
+  display: inline-flex;
+  margin-top: 1.6rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid rgba(239, 206, 123, 0.52);
+  color: #e9cf8f;
+  font-family: "Diphylleia", Georgia, "Times New Roman", serif;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.people-record__return:hover,
+.people-record__return:focus-visible {
+  border-color: #fff1c6;
+  color: #fff1c6;
+  text-decoration: none;
+}
+
+.peoples-closing {
+  display: grid;
+  grid-template-columns: minmax(5rem, 0.22fr) minmax(0, 1fr);
+  gap: clamp(2rem, 6vw, 5.5rem);
+  padding-top: clamp(4.5rem, 9vw, 8rem);
+  padding-bottom: clamp(5rem, 10vw, 9rem);
+  border-top: 1px solid var(--peoples-line);
+}
+
+.peoples-closing__seal {
+  position: relative;
+  z-index: 0;
+  width: clamp(4.5rem, 9vw, 7rem);
+  height: clamp(4.5rem, 9vw, 7rem);
+  display: grid;
+  place-items: center;
+  align-self: start;
+  color: var(--gold-bright);
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.peoples-closing__seal::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border: 1px solid var(--peoples-line-strong);
+  box-shadow: 0 0 2.6rem rgba(201, 163, 90, 0.12);
+  transform: rotate(45deg);
+}
+
+.peoples-closing > div:last-child {
+  max-width: 800px;
+}
+
+.peoples-closing p:not(.section-kicker) {
+  color: #cfc0a0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.02rem, 1.6vw, 1.14rem);
+  line-height: 1.85;
+}
+
+.peoples-closing .button {
+  margin-top: 1.4rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .people-index__entry,
+  .people-record__toggle::before,
+  .people-record__toggle::after {
+    transition: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .people-record__body {
+    grid-template-columns: 1fr;
+  }
+
+  .people-record__portrait {
+    position: relative;
+    top: auto;
+    min-height: min(68vw, 34rem);
+  }
+}
+
+@media (max-width: 760px) {
+  .peoples-hero {
+    min-height: 86svh;
+  }
+
+  .peoples-hero__image {
+    background-position: 65% center;
+  }
+
+  .peoples-hero__veil {
+    background:
+      linear-gradient(0deg, #080706 0%, rgba(4, 3, 2, 0.68) 62%, rgba(2, 2, 2, 0.36)),
+      linear-gradient(90deg, rgba(3, 3, 3, 0.8), transparent);
+  }
+
+  .peoples-backlink {
+    margin-bottom: 4.5rem;
+  }
+
+  .people-index {
+    grid-template-columns: 1fr;
+  }
+
+  .people-record summary {
+    grid-template-columns: 3.4rem minmax(0, 1fr) 1.5rem;
+    gap: 0.85rem;
+    min-height: 6.4rem;
+  }
+
+  .people-record__number {
+    width: 2.65rem;
+    height: 2.65rem;
+  }
+
+  .peoples-closing {
+    grid-template-columns: 1fr;
+  }
+
+  .peoples-closing__seal {
+    margin: 0 0 1rem 1.1rem;
+  }
+}
+
+@media (max-width: 460px) {
+  .peoples-hero__content {
+    padding-bottom: 3.5rem;
+  }
+
+  .peoples-hero h1 {
+    font-size: clamp(2.8rem, 15vw, 4.2rem);
+  }
+
+  .people-index__entry {
+    min-height: 5.8rem;
+  }
+
+  .people-record summary {
+    grid-template-columns: minmax(0, 1fr) 1.5rem;
+  }
+
+  .people-record__number {
+    display: none;
+  }
+
+  .people-record__portrait {
+    min-height: 24rem;
+  }
+}

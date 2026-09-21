@@ -1,0 +1,315 @@
+.world-page {
+  --world-line: rgba(201, 163, 90, 0.28);
+  --world-line-strong: rgba(239, 206, 123, 0.7);
+  background:
+    radial-gradient(circle at 68% 20%, rgba(112, 76, 35, 0.2), transparent 36rem),
+    #080706;
+}
+
+.world-hero {
+  position: relative;
+  min-height: 82svh;
+  display: grid;
+  place-items: end start;
+  overflow: hidden;
+  border-bottom: 1px solid var(--world-line);
+  background: #050403;
+}
+
+.world-hero__image,
+.world-hero__veil {
+  position: absolute;
+  inset: 0;
+}
+
+.world-hero__image {
+  background-image: url("../assets/main-screen.jpg");
+  background-position: center 35%;
+  background-size: cover;
+  filter: saturate(0.74) contrast(1.08) brightness(0.62);
+  transform: scale(1.025);
+}
+
+.world-hero__veil {
+  background:
+    linear-gradient(90deg, rgba(3, 3, 3, 0.94) 0%, rgba(4, 3, 2, 0.76) 46%, rgba(2, 2, 2, 0.18) 82%),
+    linear-gradient(0deg, #080706 0%, transparent 52%),
+    radial-gradient(circle at 74% 28%, rgba(209, 165, 80, 0.14), transparent 29rem);
+}
+
+.world-hero__content {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 1240px);
+  margin-inline: auto;
+  padding: clamp(7rem, 13vw, 11rem) clamp(1.25rem, 7vw, 5rem) clamp(4rem, 8vw, 7rem);
+}
+
+.world-backlink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 3.25rem;
+  color: #d3c29e;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.world-backlink::before {
+  content: "←";
+  color: var(--gold);
+  font-size: 1rem;
+}
+
+.world-kicker {
+  margin: 0 0 0.9rem;
+  color: var(--gold-bright);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.world-hero h1 {
+  max-width: 920px;
+  margin: 0;
+  color: #f3e4bf;
+  font-size: clamp(3.4rem, 8vw, 7.8rem);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 0.92;
+  text-shadow: 0 0.35rem 1.8rem rgba(0, 0, 0, 0.84);
+}
+
+.world-hero__subtitle {
+  max-width: 740px;
+  margin: 1.45rem 0 0;
+  color: #ddcda9;
+  font-size: clamp(1.08rem, 2vw, 1.5rem);
+  letter-spacing: 0.035em;
+}
+
+.world-hero__intro {
+  max-width: 670px;
+  margin: 1.6rem 0 2rem;
+  color: #b9aa8d;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1rem, 1.5vw, 1.12rem);
+  line-height: 1.72;
+}
+
+.world-collections {
+  width: min(100%, 1240px);
+  margin-inline: auto;
+  padding: clamp(4.5rem, 9vw, 8rem) clamp(1.25rem, 6vw, 4.5rem) clamp(5rem, 10vw, 9rem);
+}
+
+.world-collections__intro {
+  max-width: 760px;
+  margin-bottom: clamp(2.8rem, 6vw, 5rem);
+}
+
+.world-collections__intro h2 {
+  margin: 0;
+  color: #f0dfb9;
+  font-size: clamp(2.5rem, 5vw, 4.8rem);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.world-collections__intro > p:last-child {
+  margin: 1.2rem 0 0;
+  color: var(--muted);
+  font-size: 1.04rem;
+  line-height: 1.75;
+}
+
+.world-volume-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.15rem;
+}
+
+.world-volume {
+  position: relative;
+  min-height: 29rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: clamp(1.6rem, 4vw, 2.8rem);
+  border: 1px solid var(--world-line);
+  overflow: hidden;
+  color: var(--text);
+  background-color: #0c0907;
+  background-position: center;
+  background-size: cover;
+  box-shadow: 0 1.6rem 3.8rem rgba(0, 0, 0, 0.3);
+  isolation: isolate;
+}
+
+.world-volume::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(0deg, rgba(6, 5, 4, 0.98) 0%, rgba(7, 6, 5, 0.84) 36%, rgba(6, 5, 4, 0.15) 78%),
+    linear-gradient(120deg, rgba(37, 24, 13, 0.44), transparent 60%);
+  transition: background-color 180ms ease;
+}
+
+.world-volume--chronicle {
+  background-image: url("../assets/main-screen.jpg");
+}
+
+.world-volume--peoples {
+  background-image: url("../assets/Races_Guilds/Race_Human_Female.webp");
+  background-position: 58% 20%;
+}
+
+.world-volume--guilds {
+  grid-column: 1 / -1;
+  min-height: 20rem;
+  background-image: url("../assets/Races_Guilds/Guardian_Male.webp");
+  background-position: center 24%;
+}
+
+.world-volume__number {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.7rem;
+  color: rgba(239, 206, 123, 0.64);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.world-volume__type {
+  color: #98d8c8;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.world-volume h2 {
+  max-width: 620px;
+  margin: 0.35rem 0 0;
+  color: #f0dcae;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  font-weight: 400;
+  line-height: 1.03;
+  text-shadow: 0 0.25rem 0.9rem rgba(0, 0, 0, 0.96);
+}
+
+.world-volume p {
+  max-width: 640px;
+  margin: 1rem 0 0;
+  color: #d2c4a7;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.02rem;
+  line-height: 1.68;
+  text-shadow: 0 0.15rem 0.65rem rgba(0, 0, 0, 0.96);
+}
+
+.world-volume__action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  align-self: flex-start;
+  margin-top: 1.65rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid rgba(239, 206, 123, 0.66);
+  color: #ffe7aa;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+a.world-volume {
+  transition: border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+}
+
+a.world-volume:hover,
+a.world-volume:focus-visible {
+  border-color: var(--world-line-strong);
+  box-shadow: 0 1.9rem 4.8rem rgba(0, 0, 0, 0.44), 0 0 2.4rem rgba(201, 163, 90, 0.08);
+  text-decoration: none;
+  transform: translateY(-0.2rem);
+}
+
+a.world-volume:hover .world-volume__action,
+a.world-volume:focus-visible .world-volume__action {
+  gap: 0.9rem;
+  color: #fff2ce;
+}
+
+.world-volume.is-forthcoming {
+  opacity: 0.6;
+}
+
+.world-volume.is-forthcoming::after {
+  content: "Forthcoming";
+  position: absolute;
+  top: 1.45rem;
+  left: 1.7rem;
+  padding: 0.3rem 0.55rem;
+  border: 1px solid rgba(184, 169, 141, 0.42);
+  background: rgba(8, 7, 6, 0.74);
+  color: #c7b99d;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  a.world-volume {
+    transition: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .world-hero {
+    min-height: 88svh;
+  }
+
+  .world-hero__image {
+    background-position: 62% center;
+  }
+
+  .world-hero__veil {
+    background:
+      linear-gradient(0deg, #080706 0%, rgba(4, 3, 2, 0.68) 62%, rgba(2, 2, 2, 0.36)),
+      linear-gradient(90deg, rgba(3, 3, 3, 0.78), transparent);
+  }
+
+  .world-backlink {
+    margin-bottom: 4.5rem;
+  }
+
+  .world-volume-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .world-volume--guilds {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 460px) {
+  .world-hero__content {
+    padding-bottom: 3.5rem;
+  }
+
+  .world-hero h1 {
+    font-size: clamp(3rem, 16vw, 4.5rem);
+  }
+
+  .world-volume {
+    min-height: 25rem;
+  }
+}

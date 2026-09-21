@@ -45,10 +45,14 @@ if (typeof codexEntries !== "undefined") {
 
         nextCard.style.setProperty("--codex-art", `url("${codexArtworkPath}${entry.artwork.filename}")`);
         nextCard.classList.remove("is-depth-enhanced");
+        const moreLink = entry.href
+          ? `<a class="codex-detail__more" href="${entry.href}">Read the full ${entry.name} record <span aria-hidden="true">→</span></a>`
+          : "";
         nextCard.innerHTML = `
           <p class="codex-detail__type">${activeCodexTab === "races" ? "Race" : entry.group + " Guild"}</p>
           <h3>${entry.name}</h3>
           <p>${entry.text}</p>
+          ${moreLink}
           <div class="codex-tags" aria-label="${entry.name} traits">
             ${entry.tags.map((tag) => `<span>${tag}</span>`).join("")}
           </div>
@@ -301,7 +305,8 @@ if (typeof codexEntries !== "undefined") {
     const hero = document.querySelector(".hero");
     const page = document.querySelector(".page");
     const codexSection = document.querySelector(".codex-section");
-    const snapSections = [hero, page, codexSection];
+    const agesSection = document.querySelector(".ages-section");
+    const snapSections = [hero, page, codexSection, agesSection];
     let scrollJumpLocked = false;
     function scrollToSection(target) {
       scrollJumpLocked = true;
