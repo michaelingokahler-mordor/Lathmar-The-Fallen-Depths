@@ -911,6 +911,195 @@ h1 {
   min-width: min(100%, 18rem);
 }
 
+.archive-section {
+  --archive-line: rgba(201, 163, 90, 0.28);
+  --archive-line-strong: rgba(239, 206, 123, 0.7);
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: grid;
+  align-items: center;
+  padding: clamp(4.5rem, 9vw, 8rem) 0 clamp(5rem, 10vw, 9rem);
+  overflow: hidden;
+  border-top: 1px solid var(--archive-line);
+  border-bottom: 1px solid var(--archive-line);
+  background:
+    radial-gradient(circle at 68% 20%, rgba(112, 76, 35, 0.2), transparent 36rem),
+    #080706;
+}
+
+.archive-layout {
+  position: relative;
+  z-index: 1;
+  width: min(92vw, var(--max-width));
+  margin-inline: auto;
+}
+
+.archive-intro {
+  max-width: 760px;
+  margin-bottom: clamp(2.8rem, 6vw, 5rem);
+}
+
+.archive-intro h2 {
+  margin: 0;
+  color: #f0dfb9;
+  font-size: clamp(2.5rem, 5vw, 4.8rem);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.archive-intro > p:last-child {
+  margin: 1.2rem 0 0;
+  color: var(--muted);
+  font-size: 1.04rem;
+  line-height: 1.75;
+}
+
+.archive-volume-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.15rem;
+}
+
+.archive-volume {
+  position: relative;
+  min-height: 29rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: clamp(1.6rem, 4vw, 2.8rem);
+  border: 1px solid var(--archive-line);
+  overflow: hidden;
+  color: var(--text);
+  background-color: #0c0907;
+  background-position: center;
+  background-size: cover;
+  box-shadow: 0 1.6rem 3.8rem rgba(0, 0, 0, 0.3);
+  isolation: isolate;
+}
+
+.archive-volume::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(0deg, rgba(6, 5, 4, 0.98) 0%, rgba(7, 6, 5, 0.84) 36%, rgba(6, 5, 4, 0.15) 78%),
+    linear-gradient(120deg, rgba(37, 24, 13, 0.44), transparent 60%);
+}
+
+.archive-volume--chronicle {
+  background-image: url("assets/main-screen.jpg");
+}
+
+.archive-volume--peoples {
+  background-image: url("assets/Races_Guilds/Race_Human_Female.webp");
+  background-position: 58% 20%;
+}
+
+.archive-volume--guilds {
+  grid-column: 1 / -1;
+  min-height: 20rem;
+  background-image: url("assets/Races_Guilds/Guardian_Male.webp");
+  background-position: center 24%;
+}
+
+.archive-volume__number {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.7rem;
+  color: rgba(239, 206, 123, 0.64);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.archive-volume__type {
+  color: #98d8c8;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.archive-volume h3 {
+  max-width: 620px;
+  margin: 0.35rem 0 0;
+  color: #f0dcae;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  font-weight: 400;
+  line-height: 1.03;
+  text-shadow: 0 0.25rem 0.9rem rgba(0, 0, 0, 0.96);
+}
+
+.archive-volume p {
+  max-width: 640px;
+  margin: 1rem 0 0;
+  color: #d2c4a7;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.02rem;
+  line-height: 1.68;
+  text-shadow: 0 0.15rem 0.65rem rgba(0, 0, 0, 0.96);
+}
+
+.archive-volume__action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  align-self: flex-start;
+  margin-top: 1.65rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid rgba(239, 206, 123, 0.66);
+  color: #ffe7aa;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+a.archive-volume {
+  transition: border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+}
+
+a.archive-volume:hover,
+a.archive-volume:focus-visible {
+  border-color: var(--archive-line-strong);
+  box-shadow: 0 1.9rem 4.8rem rgba(0, 0, 0, 0.44), 0 0 2.4rem rgba(201, 163, 90, 0.08);
+  text-decoration: none;
+  transform: translateY(-0.2rem);
+}
+
+a.archive-volume:hover .archive-volume__action,
+a.archive-volume:focus-visible .archive-volume__action {
+  gap: 0.9rem;
+  color: #fff2ce;
+}
+
+.archive-volume.is-forthcoming {
+  opacity: 0.6;
+}
+
+.archive-volume.is-forthcoming::after {
+  content: "Forthcoming";
+  position: absolute;
+  top: 1.45rem;
+  left: 1.7rem;
+  padding: 0.3rem 0.55rem;
+  border: 1px solid rgba(184, 169, 141, 0.42);
+  background: rgba(8, 7, 6, 0.74);
+  color: #c7b99d;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  a.archive-volume {
+    transition: none;
+  }
+}
+
 .small-note {
   margin: 1rem 0 0;
   color: var(--muted);
@@ -1017,7 +1206,8 @@ h1 {
   .hero,
   .page,
   .codex-section,
-  .ages-section {
+  .ages-section,
+  .archive-section {
     scroll-snap-align: start;
   }
 }
@@ -1088,6 +1278,18 @@ h1 {
     grid-column: 2;
     grid-row: 2;
     padding: 0 0 1.7rem 1rem;
+  }
+
+  .archive-section {
+    min-height: auto;
+  }
+
+  .archive-volume-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .archive-volume--guilds {
+    grid-column: auto;
   }
 
   .hero__image {
