@@ -5,15 +5,89 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The World of Lathmar | History, Peoples and Guilds</title>
   <meta name="description" content="Enter the world of Lathmar through the Chronicle of Aeltharion, the peoples of the continent, and the guilds that shape life above the Fallen Depths." />
-  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
   <link rel="canonical" href="https://lathmar.de/world/" />
 
   <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Lathmar: The Fallen Depths" />
   <meta property="og:title" content="The World of Lathmar" />
   <meta property="og:description" content="History, peoples, and the powers that shaped Aeltharion." />
   <meta property="og:url" content="https://lathmar.de/world/" />
   <meta property="og:image" content="https://lathmar.de/assets/main-screen.jpg" />
   <meta property="og:image:alt" content="The city and depths of Lathmar" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The World of Lathmar" />
+  <meta name="twitter:description" content="History, peoples, and the powers that shaped Aeltharion." />
+  <meta name="twitter:image" content="https://lathmar.de/assets/main-screen.jpg" />
+  <meta name="twitter:image:alt" content="The city and depths of Lathmar" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://lathmar.de/#organization",
+          "name": "Sabnock Works",
+          "url": "https://sabnockworks.com/"
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://lathmar.de/#website",
+          "url": "https://lathmar.de/",
+          "name": "Lathmar: The Fallen Depths",
+          "inLanguage": "en",
+          "publisher": {
+            "@id": "https://lathmar.de/#organization"
+          }
+        },
+        {
+          "@type": "CollectionPage",
+          "@id": "https://lathmar.de/world/#page",
+          "url": "https://lathmar.de/world/",
+          "name": "The World of Lathmar",
+          "description": "Enter the world of Lathmar through the Chronicle of Aeltharion, the peoples of the continent, and the guilds that shape life above the Fallen Depths.",
+          "inLanguage": "en",
+          "isPartOf": {
+            "@id": "https://lathmar.de/#website"
+          },
+          "about": {
+            "@id": "https://lathmar.de/#videogame"
+          },
+          "hasPart": [
+            {
+              "@id": "https://lathmar.de/world/chronicle/#article"
+            },
+            {
+              "@id": "https://lathmar.de/world/peoples/#page"
+            }
+          ],
+          "breadcrumb": {
+            "@id": "https://lathmar.de/world/#breadcrumb"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://lathmar.de/world/#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://lathmar.de/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "The World of Lathmar",
+              "item": "https://lathmar.de/world/"
+            }
+          ]
+        }
+      ]
+    }
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -100,5 +174,9 @@
   </footer>
 
   <script src="../script.js"></script>
+
+  <!-- Cloudflare Web Analytics -->
+  <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"541cc58685d746caa991d7471fcf78fc"}'></script>
+  <!-- End Cloudflare Web Analytics -->
 </body>
 </html>

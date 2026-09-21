@@ -1,0 +1,21 @@
+# Lathmar: The Fallen Depths
+
+> Official website and world archive for Lathmar: The Fallen Depths, a dark fantasy dungeon crawler in development at Sabnock Works.
+
+Lathmar: The Fallen Depths is a party-based Windows RPG inspired by classic 1990s dungeon crawlers. The official site contains the current game overview, development links, and the canonical public lore of Aeltharion.
+
+## Core pages
+
+- [Official website](https://lathmar.de/): Game overview, features, development videos, and community links.
+- [The World of Lathmar](https://lathmar.de/world/): Index of the public Aeltharion archive.
+- [The Chronicle of Aeltharion](https://lathmar.de/world/chronicle/): Historical account from the age of giants and dragons to the Fourth Age.
+- [The Peoples of Aeltharion](https://lathmar.de/world/peoples/): Lore for the ten playable peoples and their place in the present age.
+- [Imprint and Credits](https://lathmar.de/legal.html): Publisher, privacy, licences, credits, and acknowledgements.
+
+## Publisher and development
+
+- [Sabnock Works](https://sabnockworks.com/): Developer and publisher.
+- [Lathmar on Patreon](https://www.patreon.com/cw/Lathmar_The_Fallen_Depths): Development posts and community support.
+- [Development videos](https://www.youtube.com/playlist?list=PLcgDIp8yg36x0EB_Khc0fhDquswSnF39M): Official Lathmar development playlist.
+
+The canonical URL for this site and its content is https://lathmar.de/.

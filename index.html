@@ -5,20 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lathmar: The Fallen Depths | Dark Fantasy Dungeon Crawler</title>
   <meta name="description" content="Lathmar: The Fallen Depths is a dark fantasy dungeon crawler inspired by classic 90s RPGs. Follow development updates, videos, and community links." />
-  <meta name="robots" content="index,follow,max-image-preview:large" />
-  <link rel="canonical" href="https://mordorreimagined.github.io/Lathmar-The-Fallen-Depths/" />
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
+  <link rel="canonical" href="https://lathmar.de/" />
 
   <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Lathmar: The Fallen Depths" />
   <meta property="og:title" content="Lathmar: The Fallen Depths" />
   <meta property="og:description" content="A dark fantasy dungeon crawler inspired by the classics." />
-  <meta property="og:url" content="https://mordorreimagined.github.io/Lathmar-The-Fallen-Depths/" />
-  <meta property="og:image" content="https://mordorreimagined.github.io/Lathmar-The-Fallen-Depths/assets/main-screen.jpg" />
+  <meta property="og:url" content="https://lathmar.de/" />
+  <meta property="og:image" content="https://lathmar.de/assets/main-screen.jpg" />
   <meta property="og:image:alt" content="Lathmar: The Fallen Depths main screen" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Lathmar: The Fallen Depths" />
   <meta name="twitter:description" content="A dark fantasy dungeon crawler inspired by the classics." />
-  <meta name="twitter:image" content="https://mordorreimagined.github.io/Lathmar-The-Fallen-Depths/assets/main-screen.jpg" />
+  <meta name="twitter:image" content="https://lathmar.de/assets/main-screen.jpg" />
+  <meta name="twitter:image:alt" content="Lathmar: The Fallen Depths main screen" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -27,13 +29,43 @@
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "VideoGame",
-      "name": "Lathmar: The Fallen Depths",
-      "description": "A dark fantasy dungeon crawler inspired by classic 90s RPGs.",
-      "genre": ["RPG", "Dungeon Crawler", "Dark Fantasy"],
-      "url": "https://mordorreimagined.github.io/Lathmar-The-Fallen-Depths/",
-      "image": "https://mordorreimagined.github.io/Lathmar-The-Fallen-Depths/assets/main-screen.jpg",
-      "inLanguage": "en"
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://lathmar.de/#organization",
+          "name": "Sabnock Works",
+          "url": "https://sabnockworks.com/"
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://lathmar.de/#website",
+          "url": "https://lathmar.de/",
+          "name": "Lathmar: The Fallen Depths",
+          "description": "The official website for the dark fantasy dungeon crawler Lathmar: The Fallen Depths.",
+          "inLanguage": "en",
+          "publisher": {
+            "@id": "https://lathmar.de/#organization"
+          }
+        },
+        {
+          "@type": "VideoGame",
+          "@id": "https://lathmar.de/#videogame",
+          "name": "Lathmar: The Fallen Depths",
+          "description": "A dark fantasy dungeon crawler inspired by classic 90s RPGs.",
+          "genre": ["RPG", "Dungeon Crawler", "Dark Fantasy"],
+          "url": "https://lathmar.de/",
+          "image": "https://lathmar.de/assets/main-screen.jpg",
+          "inLanguage": "en",
+          "gamePlatform": "Windows",
+          "operatingSystem": "Windows",
+          "publisher": {
+            "@id": "https://lathmar.de/#organization"
+          },
+          "isPartOf": {
+            "@id": "https://lathmar.de/#website"
+          }
+        }
+      ]
     }
   </script>
 
@@ -62,11 +94,11 @@
   <header class="hero" id="top">
     <div class="hero__shade"></div>
 
-    <img class="hero__image" src="assets/main-screen.jpg" alt="Lathmar: The Fallen Depths main screen" />
+    <img class="hero__image" src="assets/main-screen.jpg" alt="Lathmar: The Fallen Depths main screen" width="1829" height="860" fetchpriority="high" decoding="async" />
 
     <div class="hero__content">
       <h1 class="visually-hidden">Lathmar: The Fallen Depths</h1>
-      <img class="hero__title-logo" src="assets/Lathmar_Title_hell.webp" alt="" aria-hidden="true" />
+      <img class="hero__title-logo" src="assets/Lathmar_Title_hell.webp" alt="" aria-hidden="true" width="1677" height="624" decoding="async" />
       <p class="tagline">A dark dungeon RPG with old-school roots, party management, guilds, monsters, and tactical auto-battles.</p>
     </div>
   </header>
@@ -537,6 +569,10 @@
 
   </script>
   <script src="script.js?v=20260921-2"></script>
+
+  <!-- Cloudflare Web Analytics -->
+  <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"541cc58685d746caa991d7471fcf78fc"}'></script>
+  <!-- End Cloudflare Web Analytics -->
 
 </body>
 </html>

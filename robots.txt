@@ -1,9 +1,17 @@
 User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 Allow: /
 
-Sitemap: https://mordorreimagined.github.io/Lathmar-The-Fallen-Depths/sitemap.xml
+User-agent: OAI-SearchBot
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
 
-# This repository is published as a GitHub Pages project site under a subpath.
-# Search engines generally only consult robots.txt at the host root:
-# https://mordorreimagined.github.io/robots.txt
-# Configure crawl directives and sitemap discovery there, or on a custom domain.
+User-agent: GPTBot
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+User-agent: ChatGPT-User
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+Sitemap: https://lathmar.de/sitemap.xml
