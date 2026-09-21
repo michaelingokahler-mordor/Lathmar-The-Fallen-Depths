@@ -113,6 +113,12 @@
   line-height: 1.65;
 }
 
+.chronicle-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
 .chronicle-reader,
 .closing-chronicle {
   width: min(100%, 1240px);

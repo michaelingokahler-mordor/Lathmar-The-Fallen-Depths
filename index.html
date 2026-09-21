@@ -37,7 +37,7 @@
     }
   </script>
 
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=20260921-2" />
   <script src="https://cdn.jsdelivr.net/npm/pixi.js@7.4.2/dist/pixi.min.js" defer></script>
 </head>
 
@@ -54,7 +54,7 @@
       <a href="#top">Home</a>
       <a href="#about">About</a>
       <a href="#races-guilds">Races &amp; Guilds</a>
-      <a href="#ages">The Ages</a>
+      <a href="world/">The World</a>
       <a href="legal.html">Imprint &amp; Credits</a>
     </nav>
   </div>
@@ -177,6 +177,9 @@
                 Flexible survivors who fit almost any party plan. Humans bring clean choices,
                 fast adaptation, and the freedom to become what the expedition needs most.
               </p>
+              <a class="codex-detail__more" href="world/peoples/#human">
+                Read the full Human record <span aria-hidden="true">→</span>
+              </a>
               <div class="codex-tags" aria-label="Human traits">
                 <span>Flexible</span>
                 <span>Adaptable</span>
@@ -265,6 +268,7 @@
       races: [
         { name: "Human",
             text: "Flexible survivors who fit almost any party plan. Humans bring clean choices, fast adaptation, and the freedom to become what the expedition needs most.",
+              href: "world/peoples/#human",
               tags: ["Flexible", "Adaptable", "First Party"],
               artwork: {
                 filename: "Race_Human_Female.webp",
@@ -273,6 +277,7 @@
               } },
         { name: "Elf",
             text: "Long-lived and magic-attuned, Elves are built for careful support, arcane paths, and characters who survive by insight before steel.",
+              href: "world/peoples/#elf",
               tags: ["Magic", "Wisdom", "Support"],
               artwork: {
                 filename: "Race_Elf_Male.webp",
@@ -281,6 +286,7 @@
               } },
         { name: "Deep-Elf",
             text: "Marked by the underworld, Deep-Elves lean into stealth, dark magic, and dangerous paths that would break more ordinary adventurers.",
+              href: "world/peoples/#deep-elf",
               tags: ["Dark Paths", "Stealth", "Magic"],
               artwork: {
                 filename: "Race_Deep-elf_Female.webp",
@@ -289,6 +295,7 @@
               } },
         { name: "Kataxi",
             text: "Agile desert wanderers with presence and speed. Kataxi shine when a build needs finesse, charm, and motion instead of brute armor.",
+              href: "world/peoples/#kataxi",
               tags: ["Agile", "Charisma", "Finesse"],
               artwork: {
                 filename: "Race_Kataxi_Female.webp",
@@ -297,6 +304,7 @@
               } },
         { name: "Dwarf",
             text: "Stubborn survivors built for the punishments that end weaker expeditions. Dwarves are for players who value endurance, resistance, and reliability over elegance.",
+              href: "world/peoples/#dwarf",
               tags: ["Durable", "Resistant", "Frontline"],
               artwork: {
                 filename: "Race_Dwarf_Male.webp",
@@ -305,6 +313,7 @@
               } },
         { name: "Gnome",
             text: "Small, clever, and socially sharp, Gnomes turn support roles, utility, songs, and strange plans into practical expedition tools.",
+              href: "world/peoples/#gnome",
               tags: ["Clever", "Utility", "Support"],
               artwork: {
                 filename: "Race_Gnome_Female.webp",
@@ -313,6 +322,7 @@
               } },
         { name: "Ithrax",
             text: "Harsh and unsentimental, Ithrax are made for control, dangerous magic, and characters who treat survival as a discipline.",
+              href: "world/peoples/#ithrax",
               tags: ["Control", "Acid", "Dark Magic"],
               artwork: {
                 filename: "Race_Ithrax_Male.webp",
@@ -321,6 +331,7 @@
               } },
         { name: "Oromun",
             text: "Stone-born giants who feel less like recruits and more like moving walls. Oromun reward patient players who want a physical anchor for the party.",
+              href: "world/peoples/#oromun",
               tags: ["Massive", "Enduring", "Anchor"],
               artwork: {
                 filename: "Race_Oromun_male.webp",
@@ -329,6 +340,7 @@
               } },
         { name: "Skarn",
             text: "Large, direct, and physically imposing, Skarn are natural martial choices for players who want strength with a harsher edge.",
+              href: "world/peoples/#skarn",
               tags: ["Martial", "Powerful", "Frontline"],
               artwork: {
                 filename: "Race_Skarn_Male.webp",
@@ -337,6 +349,7 @@
               } },
         { name: "Lignari",
             text: "Nature-bound and quietly difficult to kill, Lignari survive through strange endurance, wisdom, and a refusal to depend on ordinary armor.",
+              href: "world/peoples/#lignari",
               tags: ["Nature", "Resistant", "Wisdom"],
               artwork: {
                 filename: "Race_Lignari_Neutral.webp",
@@ -523,7 +536,7 @@
     const codexArtworkDepthmapPath = "assets/Races_Guilds_DepthMap/";
 
   </script>
-  <script src="script.js"></script>
+  <script src="script.js?v=20260921-2"></script>
 
 </body>
 </html>

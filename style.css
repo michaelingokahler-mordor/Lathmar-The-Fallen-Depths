@@ -674,6 +674,7 @@ h1 {
 
 .codex-detail__card.is-visible {
   opacity: 1;
+  pointer-events: auto;
 }
 
 .codex-detail__card > :not(.codex-depth-stage) {
@@ -704,6 +705,31 @@ h1 {
   color: #e8dcc5;
   font-size: 1.12rem;
   text-shadow: 0 0.15rem 0.65rem rgba(0, 0, 0, 0.96);
+}
+
+.codex-detail__more {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-top: 1.2rem;
+  padding: 0.48rem 0.68rem;
+  border-bottom: 1px solid rgba(239, 206, 123, 0.72);
+  color: #ffe6a6;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-shadow: 0 0.15rem 0.65rem rgba(0, 0, 0, 0.96);
+  transition: color 160ms ease, border-color 160ms ease, gap 160ms ease;
+}
+
+.codex-detail__more:hover,
+.codex-detail__more:focus-visible {
+  gap: 0.9rem;
+  border-color: #fff1c6;
+  color: #fff1c6;
+  text-decoration: none;
 }
 
 .codex-tags {
