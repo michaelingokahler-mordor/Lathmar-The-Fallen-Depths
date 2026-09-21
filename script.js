@@ -305,8 +305,8 @@ if (typeof codexEntries !== "undefined") {
     const hero = document.querySelector(".hero");
     const page = document.querySelector(".page");
     const codexSection = document.querySelector(".codex-section");
-    const agesSection = document.querySelector(".ages-section");
-    const snapSections = [hero, page, codexSection, agesSection];
+    const archiveSection = document.querySelector(".archive-section");
+    const snapSections = [hero, page, codexSection, archiveSection].filter(Boolean);
     let scrollJumpLocked = false;
     function scrollToSection(target) {
       scrollJumpLocked = true;
@@ -343,7 +343,9 @@ if (typeof codexEntries !== "undefined") {
         scrollToSection(snapSections[currentIndex - 1]);
       }
     }
-    window.addEventListener("wheel", scrollerHeroPage, { passive: false });
+    if (snapSections.length > 1) {
+      window.addEventListener("wheel", scrollerHeroPage, { passive: false });
+    }
 
     /* parallax effect on Lathmar logo */
     const heroContent = document.querySelector(".hero__title-logo");

@@ -15,6 +15,7 @@
   --gold-bright: #efce7b;
   --shadow: rgba(0, 0, 0, 0.78);
   --max-width: 1120px;
+  --brick-pattern: url("data:image/svg+xml,%3Csvg width='42' height='44' viewBox='0 0 42 44' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='Page-1' fill='none' fill-rule='evenodd'%3E%3Cg id='brick-wall' fill='%23e8dcc5' fill-opacity='0.05'%3E%3Cpath d='M0 0h42v44H0V0zm1 1h40v20H1V1zM0 23h20v20H0V23zm22 0h20v20H22V23z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
 * {
@@ -27,14 +28,11 @@ html {
 
 body {
   margin: 0;
-  background:
-    radial-gradient(circle at top, rgba(88, 60, 32, 0.25), transparent 32rem),
-    var(--bg);
+  background-color: var(--bg);
+  background-image: var(--brick-pattern);
   color: var(--text);
   font-family: "Diphylleia", Georgia, "Times New Roman", serif;
   line-height: 1.55;
-  /* background brick pattern */
-  background-image: url("data:image/svg+xml,%3Csvg width='42' height='44' viewBox='0 0 42 44' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='Page-1' fill='none' fill-rule='evenodd'%3E%3Cg id='brick-wall' fill='%23e8dcc5' fill-opacity='0.05'%3E%3Cpath d='M0 0h42v44H0V0zm1 1h40v20H1V1zM0 23h20v20H0V23zm22 0h20v20H22V23z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
 a {
@@ -919,13 +917,12 @@ h1 {
   min-height: 100svh;
   display: grid;
   align-items: center;
-  padding: clamp(4.5rem, 9vw, 8rem) 0 clamp(5rem, 10vw, 9rem);
+  padding: clamp(2.5rem, 5svh, 4rem) 0;
   overflow: hidden;
   border-top: 1px solid var(--archive-line);
   border-bottom: 1px solid var(--archive-line);
-  background:
-    radial-gradient(circle at 68% 20%, rgba(112, 76, 35, 0.2), transparent 36rem),
-    #080706;
+  background-color: #080706;
+  background-image: var(--brick-pattern);
 }
 
 .archive-layout {
@@ -937,7 +934,7 @@ h1 {
 
 .archive-intro {
   max-width: 760px;
-  margin-bottom: clamp(2.8rem, 6vw, 5rem);
+  margin-bottom: clamp(1.5rem, 3svh, 2.5rem);
 }
 
 .archive-intro h2 {
@@ -963,11 +960,11 @@ h1 {
 
 .archive-volume {
   position: relative;
-  min-height: 29rem;
+  min-height: clamp(19.5rem, 33svh, 21rem);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: clamp(1.6rem, 4vw, 2.8rem);
+  padding: clamp(1.35rem, 2vw, 2rem);
   border: 1px solid var(--archive-line);
   overflow: hidden;
   color: var(--text);
@@ -999,7 +996,7 @@ h1 {
 
 .archive-volume--guilds {
   grid-column: 1 / -1;
-  min-height: 20rem;
+  min-height: clamp(15rem, 24svh, 16rem);
   background-image: url("assets/Races_Guilds/Guardian_Male.webp");
   background-position: center 24%;
 }
@@ -1290,6 +1287,11 @@ a.archive-volume:focus-visible .archive-volume__action {
 
   .archive-volume--guilds {
     grid-column: auto;
+    min-height: 20rem;
+  }
+
+  .archive-volume:not(.archive-volume--guilds) {
+    min-height: 25rem;
   }
 
   .hero__image {
