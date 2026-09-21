@@ -725,6 +725,166 @@ h1 {
   text-shadow: 0 0.1rem 0.35rem rgba(0, 0, 0, 0.95);
 }
 
+.ages-section {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: grid;
+  align-items: center;
+  padding: clamp(4rem, 8vw, 7rem) 0;
+  overflow: hidden;
+  border-top: 1px solid rgba(201, 163, 90, 0.2);
+  border-bottom: 1px solid rgba(201, 163, 90, 0.2);
+  background:
+    radial-gradient(circle at 76% 16%, rgba(135, 91, 38, 0.2), transparent 30rem),
+    linear-gradient(145deg, rgba(8, 7, 6, 0.96), rgba(28, 21, 14, 0.76));
+}
+
+.ages-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, transparent 0 49.8%, rgba(201, 163, 90, 0.04) 50%, transparent 50.2%),
+    radial-gradient(circle at 50% 50%, transparent 0 18rem, rgba(201, 163, 90, 0.035) 18.05rem 18.15rem, transparent 18.2rem);
+  pointer-events: none;
+}
+
+.ages-layout {
+  position: relative;
+  z-index: 1;
+  width: min(92vw, var(--max-width));
+  margin: 0 auto;
+}
+
+.ages-intro {
+  max-width: 46rem;
+  margin-bottom: clamp(2.7rem, 5vw, 4.5rem);
+}
+
+.ages-intro h2 {
+  margin: 0;
+  color: var(--gold-bright);
+  font-size: clamp(2.4rem, 5vw, 4.5rem);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.ages-intro > p:last-child {
+  margin: 1.2rem 0 0;
+  color: var(--muted);
+  font-size: 1.03rem;
+  line-height: 1.7;
+}
+
+.ages-timeline {
+  position: relative;
+  display: grid;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.ages-timeline::before {
+  content: "";
+  position: absolute;
+  top: 1.75rem;
+  bottom: 1.75rem;
+  left: calc(23% + 2.1rem);
+  width: 1px;
+  background: linear-gradient(transparent, var(--gold), rgba(201, 163, 90, 0.32), var(--gold), transparent);
+}
+
+.ages-entry {
+  position: relative;
+  display: grid;
+  grid-template-columns: 23% 4.2rem minmax(0, 1fr);
+  align-items: start;
+  min-height: 8.7rem;
+  padding: 1rem 0;
+  color: inherit;
+}
+
+.ages-entry:hover,
+.ages-entry:focus-visible {
+  text-decoration: none;
+}
+
+.ages-entry__period {
+  padding: 0.5rem 1.2rem 0 0;
+  color: #9f9076;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.ages-entry__marker {
+  position: relative;
+  z-index: 1;
+  width: 2.9rem;
+  height: 2.9rem;
+  display: grid;
+  place-items: center;
+  justify-self: center;
+  color: var(--gold-bright);
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.ages-entry__marker::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border: 1px solid rgba(239, 206, 123, 0.72);
+  background: #0e0b08;
+  box-shadow: 0 0 0 0.42rem #0a0806, 0 0 1.8rem rgba(201, 163, 90, 0.14);
+  transform: rotate(45deg);
+  transition: background-color 150ms ease, box-shadow 150ms ease;
+}
+
+.ages-entry__copy {
+  display: grid;
+  gap: 0.45rem;
+  padding: 0.05rem 0 1.5rem 1rem;
+  border-bottom: 1px solid rgba(201, 163, 90, 0.14);
+}
+
+.ages-entry__copy strong {
+  color: #ead6aa;
+  font-size: clamp(1.3rem, 2.6vw, 2.1rem);
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.ages-entry__copy span {
+  max-width: 610px;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.ages-entry:hover .ages-entry__marker::before,
+.ages-entry:focus-visible .ages-entry__marker::before {
+  background: #4a3218;
+  box-shadow: 0 0 0 0.42rem #0a0806, 0 0 2.2rem rgba(239, 206, 123, 0.3);
+}
+
+.ages-entry:hover .ages-entry__copy strong,
+.ages-entry:focus-visible .ages-entry__copy strong {
+  color: #fff0ca;
+}
+
+.ages-action {
+  display: flex;
+  justify-content: center;
+  margin-top: 2.2rem;
+}
+
+.ages-action .button {
+  min-width: min(100%, 18rem);
+}
+
 .small-note {
   margin: 1rem 0 0;
   color: var(--muted);
@@ -830,7 +990,8 @@ h1 {
 
   .hero,
   .page,
-  .codex-section {
+  .codex-section,
+  .ages-section {
     scroll-snap-align: start;
   }
 }
@@ -862,6 +1023,45 @@ h1 {
 
   .content-grid {
     grid-template-columns: 1fr;
+  }
+
+  .ages-section {
+    min-height: auto;
+  }
+
+  .ages-timeline::before {
+    left: 1.45rem;
+  }
+
+  .ages-entry {
+    grid-template-columns: 2.9rem minmax(0, 1fr);
+    min-height: 0;
+    padding: 0 0 2.4rem;
+  }
+
+  .ages-entry__period {
+    grid-column: 2;
+    grid-row: 1;
+    padding: 0.1rem 0 0.35rem 1rem;
+    text-align: left;
+  }
+
+  .ages-entry__marker {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    width: 2.35rem;
+    height: 2.35rem;
+    margin-top: 0.2rem;
+  }
+
+  .ages-entry__marker::before {
+    box-shadow: 0 0 0 0.34rem #0a0806;
+  }
+
+  .ages-entry__copy {
+    grid-column: 2;
+    grid-row: 2;
+    padding: 0 0 1.7rem 1rem;
   }
 
   .hero__image {

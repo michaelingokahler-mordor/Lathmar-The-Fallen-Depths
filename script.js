@@ -301,7 +301,8 @@ if (typeof codexEntries !== "undefined") {
     const hero = document.querySelector(".hero");
     const page = document.querySelector(".page");
     const codexSection = document.querySelector(".codex-section");
-    const snapSections = [hero, page, codexSection];
+    const agesSection = document.querySelector(".ages-section");
+    const snapSections = [hero, page, codexSection, agesSection];
     let scrollJumpLocked = false;
     function scrollToSection(target) {
       scrollJumpLocked = true;
