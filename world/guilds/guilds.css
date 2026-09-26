@@ -1,0 +1,430 @@
+.guilds-page {
+  --guild-line: rgba(201, 163, 90, 0.28);
+  --guild-line-strong: rgba(239, 206, 123, 0.68);
+  background-color: #080706;
+  background-image: var(--brick-pattern);
+}
+
+.guilds-hero {
+  min-height: 66svh;
+  display: grid;
+  align-items: end;
+  border-bottom: 1px solid var(--guild-line);
+}
+
+.guilds-hero__content,
+.guilds-directory {
+  width: min(100%, 1240px);
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 6vw, 4.5rem);
+}
+
+.guilds-hero__content {
+  padding-top: clamp(7rem, 13vw, 11rem);
+  padding-bottom: clamp(3.5rem, 8vw, 6rem);
+}
+
+.guilds-backlink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 3.25rem;
+  color: #d3c29e;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.guilds-backlink::before {
+  content: "←";
+  color: var(--gold);
+  font-size: 1rem;
+}
+
+.guilds-kicker {
+  margin: 0 0 0.9rem;
+  color: var(--gold-bright);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.guilds-hero h1 {
+  max-width: 1040px;
+  margin: 0;
+  color: #f3e4bf;
+  font-size: clamp(3.1rem, 7.7vw, 7.4rem);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 0.96;
+}
+
+.guilds-subtitle {
+  max-width: 760px;
+  margin: 1.4rem 0 0;
+  color: #ddcda9;
+  font-size: clamp(1.05rem, 2vw, 1.45rem);
+}
+
+.guilds-intro {
+  max-width: 720px;
+  margin: 1.25rem 0 1.8rem;
+  color: #b9aa8d;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1rem, 1.5vw, 1.12rem);
+  line-height: 1.72;
+}
+
+.guilds-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.guilds-directory {
+  padding-top: clamp(4.5rem, 8vw, 7rem);
+  padding-bottom: clamp(5rem, 10vw, 9rem);
+  scroll-margin-top: 1rem;
+}
+
+.guilds-section-heading {
+  max-width: 760px;
+  margin-bottom: 2.8rem;
+}
+
+.guilds-section-heading h2 {
+  margin: 0;
+  color: #f0dfb9;
+  font-size: clamp(2.2rem, 5vw, 4.4rem);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.guilds-section-heading > p:last-child {
+  margin: 1.2rem 0 0;
+  color: var(--muted);
+  font-size: 1.04rem;
+  line-height: 1.75;
+}
+
+.guild-index {
+  display: grid;
+  gap: clamp(2.7rem, 6vw, 5rem);
+  margin-bottom: clamp(4rem, 8vw, 7rem);
+}
+
+.guild-index__group > .section-kicker {
+  margin-bottom: 0.25rem;
+}
+
+.guild-index__group h3 {
+  margin: 0 0 1.15rem;
+  color: #eadab6;
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 400;
+}
+
+.guild-index__entries {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.65rem 1rem;
+}
+
+.guild-index__entry {
+  min-width: 0;
+  min-height: 6.5rem;
+  display: grid;
+  grid-template-columns: 3.6rem minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid var(--guild-line);
+  color: var(--text);
+  transition: border-color 160ms ease, transform 160ms ease;
+}
+
+.guild-index__entry > img {
+  width: 3.6rem;
+  height: 5.4rem;
+  border: 1px solid rgba(239, 206, 123, 0.32);
+  object-fit: cover;
+  object-position: center 28%;
+}
+
+.guild-index__entry > span:nth-child(2) {
+  min-width: 0;
+  display: grid;
+  gap: 0.3rem;
+}
+
+.guild-index__entry strong {
+  color: #f0dfb9;
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.guild-index__entry small {
+  color: #ad9d82;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.88rem;
+  line-height: 1.35;
+}
+
+.guild-index__number {
+  color: var(--gold);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+}
+
+.guild-index__entry:hover,
+.guild-index__entry:focus-visible,
+.guild-index__entry.is-active {
+  border-color: var(--guild-line-strong);
+  text-decoration: none;
+  transform: translateY(-0.1rem);
+}
+
+.guild-index__entry.is-active strong {
+  color: #fff0ca;
+}
+
+.guild-records {
+  display: grid;
+  gap: 1.6rem;
+}
+
+.guild-record {
+  border-top: 1px solid var(--guild-line);
+  scroll-margin-top: 1rem;
+}
+
+.guild-record[open] {
+  border-color: var(--guild-line-strong);
+}
+
+.guild-record summary {
+  display: grid;
+  grid-template-columns: 4.4rem minmax(0, 1fr) 2rem;
+  align-items: center;
+  gap: 1.2rem;
+  min-height: 7.4rem;
+  padding: 1.3rem 0;
+  list-style: none;
+  cursor: pointer;
+}
+
+.guild-record summary::-webkit-details-marker {
+  display: none;
+}
+
+.guild-record summary:focus-visible {
+  outline: 2px solid var(--gold-bright);
+  outline-offset: 3px;
+}
+
+.guild-record__number {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 3.4rem;
+  height: 3.4rem;
+  color: var(--gold-bright);
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.guild-record__number::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--guild-line-strong);
+  transform: rotate(45deg);
+}
+
+.guild-record__heading {
+  display: grid;
+  gap: 0.18rem;
+}
+
+.guild-record__heading small {
+  color: #8fcaba;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.guild-record__heading strong {
+  color: #eadab6;
+  font-size: clamp(1.45rem, 3vw, 2.35rem);
+  font-weight: 400;
+  line-height: 1.05;
+}
+
+.guild-record__heading em {
+  color: #a99a7e;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.guild-record__toggle {
+  position: relative;
+  width: 1.35rem;
+  height: 1.35rem;
+}
+
+.guild-record__toggle::before,
+.guild-record__toggle::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 1px;
+  background: var(--gold-bright);
+  transform: translate(-50%, -50%);
+  transition: transform 180ms ease;
+}
+
+.guild-record__toggle::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.guild-record[open] .guild-record__toggle::after {
+  transform: translate(-50%, -50%);
+}
+
+.guild-record__body {
+  display: grid;
+  grid-template-columns: minmax(15rem, 0.72fr) minmax(0, 1.55fr);
+  align-items: start;
+  gap: clamp(1.7rem, 5vw, 4.5rem);
+  padding: clamp(1.5rem, 4vw, 3.5rem) 0 clamp(3rem, 7vw, 5.5rem);
+  border-top: 1px solid rgba(201, 163, 90, 0.18);
+}
+
+.guild-record__banner {
+  position: sticky;
+  top: 1.5rem;
+  width: 100%;
+  max-width: 23rem;
+  margin: 0 auto;
+  align-self: start;
+}
+
+.guild-record__banner img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 74svh;
+  object-fit: contain;
+  object-position: top center;
+}
+
+.guild-record__banner figcaption {
+  margin-top: 0.75rem;
+  color: #b9aa8d;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.guild-record__copy {
+  max-width: 760px;
+  color: #d5c7a9;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.02rem, 1.5vw, 1.12rem);
+  line-height: 1.83;
+}
+
+.guild-record__copy p {
+  margin: 0 0 1.45rem;
+}
+
+.guild-record__lead {
+  color: #ead9b6;
+  font-size: 1.08em;
+}
+
+.guild-record__copy h3 {
+  margin: 2.8rem 0 1.15rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid rgba(201, 163, 90, 0.2);
+  color: #f0dfb9;
+  font-family: "Diphylleia", Georgia, "Times New Roman", serif;
+  font-size: clamp(1.55rem, 3vw, 2.2rem);
+  font-weight: 400;
+  line-height: 1.18;
+}
+
+.guild-record__return {
+  display: inline-flex;
+  margin-top: 1.6rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid rgba(239, 206, 123, 0.52);
+  color: #e9cf8f;
+  font-family: "Diphylleia", Georgia, "Times New Roman", serif;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.guild-record__return:hover,
+.guild-record__return:focus-visible {
+  border-color: #fff1c6;
+  color: #fff1c6;
+  text-decoration: none;
+}
+
+@media (max-width: 760px) {
+  .guilds-hero {
+    min-height: 72svh;
+  }
+
+  .guild-index__entries {
+    grid-template-columns: 1fr;
+  }
+
+  .guild-record__body {
+    grid-template-columns: 1fr;
+    padding-top: 1.5rem;
+  }
+
+  .guild-record__banner {
+    position: static;
+    width: min(100%, 22rem);
+  }
+}
+
+@media (max-width: 520px) {
+  .guilds-hero h1 {
+    font-size: clamp(2.8rem, 15vw, 4.1rem);
+  }
+
+  .guild-record summary {
+    grid-template-columns: 3.3rem minmax(0, 1fr) 1.4rem;
+    gap: 0.8rem;
+  }
+
+  .guild-record__number {
+    width: 2.8rem;
+    height: 2.8rem;
+  }
+
+  .guild-index__entry {
+    grid-template-columns: 3rem minmax(0, 1fr) auto;
+  }
+
+  .guild-index__entry > img {
+    width: 3rem;
+    height: 4.6rem;
+  }
+}
