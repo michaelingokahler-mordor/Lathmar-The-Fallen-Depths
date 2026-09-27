@@ -5,7 +5,7 @@ const ageLinks = document.querySelectorAll("[data-age-link]");
 
 function openAge(ageId, { scroll = true } = {}) {
   const selectedVolume = document.getElementById(ageId);
-  if (!selectedVolume) {
+  if (!selectedVolume || !selectedVolume.classList.contains("age-volume")) {
     return;
   }
 

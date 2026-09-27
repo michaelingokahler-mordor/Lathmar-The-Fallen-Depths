@@ -57,7 +57,9 @@ if (typeof codexEntries !== "undefined") {
             ${entry.tags.map((tag) => `<span>${tag}</span>`).join("")}
           </div>
         `;
+        nextCard.inert = false;
         nextCard.setAttribute("aria-hidden", "false");
+        currentCard.inert = true;
         currentCard.setAttribute("aria-hidden", "true");
         currentCard.classList.remove("is-visible");
         void nextCard.offsetWidth;
