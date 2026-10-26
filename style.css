@@ -321,6 +321,16 @@ h1 {
   margin-top: 0.35rem;
 }
 
+.related-game {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--panel-border);
+}
+
+.related-game .button {
+  width: 100%;
+}
+
 .video-frame {
   position: relative;
   width: 100%;
